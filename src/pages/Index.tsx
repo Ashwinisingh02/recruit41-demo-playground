@@ -1,8 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useEffect, useState } from "react";
+import RobotScene from "@/components/three/RobotScene";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
-import heroImage from "@/assets/hero-recruit41.jpg";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -12,6 +14,14 @@ const Home = () => {
   const location = useLocation();
   const canonical = typeof window !== 'undefined' ? window.location.origin + location.pathname : '';
 
+  const [scrollY, setScrollY] = useState(0);
+  useEffect(() => {
+    const onScroll = () => setScrollY(window.scrollY || 0);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+  const progress = Math.min(1, scrollY / (typeof window !== 'undefined' ? window.innerHeight : 1));
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
@@ -53,12 +63,17 @@ const Home = () => {
             </div>
           </div>
           <div className="relative animate-scale-in">
-            <img
-              src={heroImage}
-              alt="Recruit41 AI interview platform hero illustration"
-              className="w-full h-auto rounded-lg shadow-[var(--shadow-elegant)]"
-              loading="lazy"
-            />
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+              <div
+                className="absolute -top-10 -right-10 w-64 h-64 rounded-full bg-gradient-to-br from-primary/30 to-transparent blur-2xl"
+                style={{ transform: `translateY(${progress * -20}px)` }}
+              />
+              <div
+                className="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-gradient-to-tr from-primary/20 to-transparent blur-3xl"
+                style={{ transform: `translateY(${progress * 30}px)` }}
+              />
+            </div>
+            <RobotScene progress={progress} />
           </div>
         </div>
       </section>
