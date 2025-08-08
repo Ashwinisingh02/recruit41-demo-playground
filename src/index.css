@@ -128,4 +128,29 @@ All colors MUST be HSL.
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+  /* Futuristic helpers */
+  .hero-gradient {
+    background-image:
+      radial-gradient(1200px 600px at 0% -20%, hsl(var(--primary)/.25), transparent),
+      radial-gradient(800px 400px at 100% 0%, hsl(var(--primary-glow)/.25), transparent),
+      var(--gradient-primary);
+  }
+  .glass { background-color: hsl(var(--card) / 0.8); backdrop-filter: blur(8px); border: 1px solid hsl(var(--border)); }
+  .spin-slower { animation: spin 12s linear infinite; }
+  .technology-band {
+    color: hsl(var(--primary-foreground));
+    background:
+      radial-gradient(800px 240px at 10% 0%, hsl(var(--primary)/.15), transparent),
+      radial-gradient(800px 240px at 90% 0%, hsl(var(--primary-glow)/.15), transparent),
+      hsl(var(--panel));
+  }
+  .cta-gradient {
+    background-image:
+      radial-gradient(800px 240px at 10% -10%, hsl(var(--primary)/.25), transparent),
+      radial-gradient(800px 240px at 90% -10%, hsl(var(--primary-glow)/.25), transparent),
+      var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+  }
 }
+
