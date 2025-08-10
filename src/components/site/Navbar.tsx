@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import ModeToggle from "./ModeToggle";
 
 const Navbar = () => {
   return (
@@ -15,8 +16,10 @@ const Navbar = () => {
           <NavLink to="/demo">
             <Button variant="hero" size="sm">Try a demo</Button>
           </NavLink>
+          <ModeToggle />
         </div>
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+          <ModeToggle />
           <NavLink to="/demo">
             <Button size="sm" variant="secondary">Demo</Button>
           </NavLink>
