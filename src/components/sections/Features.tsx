@@ -5,8 +5,11 @@ const Features = () => {
   return (
     <section id="features" className="py-16 md:py-24 border-t">
       <div className="container mx-auto">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 font-display">Powerful Features of Recruit41</h2>
+        <div className="text-center max-w-3xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">Powerful Features of Recruit41</h2>
+          <p className="text-lg text-muted-foreground mb-4">
+            We help companies make smarter, faster hiring decisions with deep technical insights and an efficient, structured process. When you need the right talent, every time, we've got you covered.
+          </p>
           <p className="text-muted-foreground">A comprehensive set of tools to optimize and streamline your hiring decisions.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
