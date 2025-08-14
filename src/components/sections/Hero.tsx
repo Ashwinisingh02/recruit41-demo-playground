@@ -70,23 +70,11 @@ const Hero = () => {
           <h2 className="mx-auto max-w-4xl text-xl md:text-2xl font-medium">
             Our intelligent system seamlessly coordinates interview slots, taking availability of both candidates and interviewers into account.
           </h2>
-          {/* Rotating badge */}
+          {/* Demo button */}
           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2">
-            <div className="relative h-36 w-36">
-              <svg className="absolute inset-0 h-full w-full spin-slower" viewBox="0 0 100 100" aria-hidden>
-                <defs>
-                  <path id="circle" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" />
-                </defs>
-                <text fontSize="8" fill="currentColor">
-                  <textPath href="#circle" startOffset="0%">
-                    LIVE INTERACTIVE DEMO • RECRUIT41 • LIVE INTERACTIVE DEMO • 
-                  </textPath>
-                </text>
-              </svg>
-              <Link to="/demo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <Button variant="hero" size="sm">Try Demo</Button>
-              </Link>
-            </div>
+            <Link to="/demo">
+              <Button variant="hero" size="sm">Try Demo</Button>
+            </Link>
           </div>
         </div>
       </div>
