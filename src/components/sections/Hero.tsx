@@ -64,13 +64,7 @@ const Hero = () => {
         {/* Product demo image */}
         <div className="relative mt-16 animate-scale-in">
           <div className="glass rounded-2xl shadow-[var(--shadow-elegant)] p-3 max-w-4xl mx-auto">
-            <img 
-              src={heroImage} 
-              alt="Recruit41 platform UI screenshot showing AI interview dashboard" 
-              className="w-full h-auto rounded-xl" 
-              loading="lazy" 
-              style={{ transform: parallaxB }}
-            />
+            
           </div>
         </div>
       </div>
