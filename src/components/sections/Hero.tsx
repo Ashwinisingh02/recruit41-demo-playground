@@ -14,7 +14,7 @@ const Hero = () => {
   }, []);
   const parallaxA = `translateY(${offset * 0.15}px)`;
   const parallaxB = `translateY(${offset * 0.25}px)`;
-  return <section className="relative overflow-hidden pt-8 md:pt-14">
+  return <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32">
       {/* Background gradient + glows */}
       <div className="absolute inset-0 -z-10 hero-gradient" aria-hidden="true" />
       <div className="pointer-events-none absolute -top-20 -left-24 h-[42rem] w-[42rem] rounded-full blur-3xl transition-transform duration-100 ease-out" style={{
@@ -26,29 +26,51 @@ const Hero = () => {
       transform: parallaxB
     }} aria-hidden />
 
-      <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center py-14 md:py-20">
+      {/* Center-aligned content like Apple/Fabric */}
+      <div className="container mx-auto text-center max-w-4xl px-6">
         <div className="animate-enter">
-          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground bg-background/60 backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm text-muted-foreground bg-background/60 backdrop-blur mb-8">
             ✨ Agentic AI Hiring
           </div>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight font-display md:text-6xl">AI that helps you to hire the best </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-xl">
-            We transform hiring by focusing on real skills, not just resumes. Our interview process goes beyond Q&A, allowing candidates to demonstrate their expertise through structured AI interviews and cutting‑edge analytics.
+          
+          <h1 className="text-5xl font-bold tracking-tight font-display md:text-7xl lg:text-8xl">
+            Is your hiring team buried under 
+            <span className="block mt-2">applications?</span>
+            <span className="block mt-4 italic text-primary">No More</span>
+          </h1>
+          
+          <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Recruit41 automates resume screening and first-round interviews, delivering only the most qualified candidates to your team.
           </p>
-          <div className="mt-8 flex items-center gap-4">
-            <Link to="/demo"><Button variant="hero" size="lg">Try a demo Interview</Button></Link>
-            <a href="#features"><Button variant="outline" size="lg">Explore features</Button></a>
+          
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link to="/demo">
+              <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+                Try AI Interview
+              </Button>
+            </Link>
+            <a href="#features">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+                Book a Demo
+              </Button>
+            </a>
           </div>
-          <div className="mt-4 text-sm text-muted-foreground">
-            ★★★★★ Based on 100+ reviews
-          </div>
+          
+          <p className="mt-6 text-sm text-muted-foreground">
+            No login or credit card required!
+          </p>
         </div>
 
-        <div className="relative animate-scale-in">
-          <div className="glass rounded-xl shadow-[var(--shadow-elegant)] p-2">
-            <img src={heroImage} alt="Recruit41 platform UI screenshot" className="w-full h-auto rounded-md" loading="lazy" style={{
-            transform: parallaxB
-          }} />
+        {/* Product demo image */}
+        <div className="relative mt-16 animate-scale-in">
+          <div className="glass rounded-2xl shadow-[var(--shadow-elegant)] p-3 max-w-4xl mx-auto">
+            <img 
+              src={heroImage} 
+              alt="Recruit41 platform UI screenshot showing AI interview dashboard" 
+              className="w-full h-auto rounded-xl" 
+              loading="lazy" 
+              style={{ transform: parallaxB }}
+            />
           </div>
         </div>
       </div>
