@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import Navbar from "@/components/site/Navbar";
 import Footer from "@/components/site/Footer";
 import Hero from "@/components/sections/Hero";
+import SocialProof from "@/components/sections/SocialProof";
 import Features from "@/components/sections/Features";
 import Pricing from "@/components/sections/Pricing";
 import CTA from "@/components/sections/CTA";
@@ -37,6 +38,8 @@ const Home = () => {
       <Navbar />
 
       <Hero />
+
+      <SocialProof />
 
       <Features />
 
