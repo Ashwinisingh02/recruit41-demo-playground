@@ -29,7 +29,7 @@ const Hero = () => {
       <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center py-14 md:py-20">
         <div className="animate-enter">
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground bg-background/60 backdrop-blur">
-            ✨ Futuristic AI Hiring
+            ✨ Agentic AI Hiring
           </div>
           <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight font-display">AI that helps you hire the best talent</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl">
