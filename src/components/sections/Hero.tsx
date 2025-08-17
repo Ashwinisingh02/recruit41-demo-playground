@@ -12,16 +12,16 @@ const Hero = () => {
     });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const parallaxA = `translateY(${offset * 0.08}px)`;
-  const parallaxB = `translateY(${offset * 0.14}px)`;
+  const parallaxA = `translateY(${offset * 0.15}px)`;
+  const parallaxB = `translateY(${offset * 0.25}px)`;
   return <section className="relative overflow-hidden pt-8 md:pt-14">
       {/* Background gradient + glows */}
       <div className="absolute inset-0 -z-10 hero-gradient" aria-hidden="true" />
-      <div className="pointer-events-none absolute -top-20 -left-24 h-[42rem] w-[42rem] rounded-full blur-3xl" style={{
+      <div className="pointer-events-none absolute -top-20 -left-24 h-[42rem] w-[42rem] rounded-full blur-3xl transition-transform duration-100 ease-out" style={{
       background: "radial-gradient(closest-side, hsl(var(--primary)/.35), transparent)",
       transform: parallaxA
     }} aria-hidden />
-      <div className="pointer-events-none absolute top-40 -right-32 h-[36rem] w-[36rem] rounded-full blur-3xl" style={{
+      <div className="pointer-events-none absolute top-40 -right-32 h-[36rem] w-[36rem] rounded-full blur-3xl transition-transform duration-100 ease-out" style={{
       background: "radial-gradient(closest-side, hsl(var(--primary-glow)/.32), transparent)",
       transform: parallaxB
     }} aria-hidden />
