@@ -31,7 +31,7 @@ const Hero = () => {
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground bg-background/60 backdrop-blur">
             ✨ Agentic AI Hiring
           </div>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight font-display">AI that helps you hire the best talent</h1>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight font-display md:text-6xl">AI that helps you to hire the best </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl">
             We transform hiring by focusing on real skills, not just resumes. Our interview process goes beyond Q&A, allowing candidates to demonstrate their expertise through structured AI interviews and cutting‑edge analytics.
           </p>
