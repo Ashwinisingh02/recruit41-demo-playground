@@ -36,7 +36,7 @@ const Hero = () => {
             We transform hiring by focusing on real skills, not just resumes. Our interview process goes beyond Q&A, allowing candidates to demonstrate their expertise through structured AI interviews and cutting‑edge analytics.
           </p>
           <div className="mt-8 flex items-center gap-4">
-            <Link to="/demo"><Button variant="hero" size="lg">Get started free</Button></Link>
+            <Link to="/demo"><Button variant="hero" size="lg">Try a demo Interview</Button></Link>
             <a href="#features"><Button variant="outline" size="lg">Explore features</Button></a>
           </div>
           <div className="mt-4 text-sm text-muted-foreground">
