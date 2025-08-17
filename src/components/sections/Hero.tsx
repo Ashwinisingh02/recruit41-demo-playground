@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-recruit41.jpg";
+import dashboardPreview from "@/assets/dashboard-preview.jpg";
 import { useEffect, useState } from "react";
 const Hero = () => {
   const [offset, setOffset] = useState(0);
@@ -64,7 +65,11 @@ const Hero = () => {
         {/* Product demo image */}
         <div className="relative mt-16 animate-scale-in">
           <div className="glass rounded-2xl shadow-[var(--shadow-elegant)] p-3 max-w-4xl mx-auto">
-            
+            <img 
+              src={dashboardPreview} 
+              alt="Recruit41 AI hiring dashboard interface showing candidate profiles and interview scheduling"
+              className="w-full h-auto rounded-lg"
+            />
           </div>
         </div>
       </div>
