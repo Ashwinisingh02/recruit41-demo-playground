@@ -2,43 +2,36 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-recruit41.jpg";
 import { useEffect, useState } from "react";
-
 const Hero = () => {
   const [offset, setOffset] = useState(0);
-
   useEffect(() => {
     const onScroll = () => setOffset(window.scrollY);
     onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, {
+      passive: true
+    });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
   const parallaxA = `translateY(${offset * 0.08}px)`;
   const parallaxB = `translateY(${offset * 0.14}px)`;
-
-  return (
-    <section className="relative overflow-hidden pt-8 md:pt-14">
+  return <section className="relative overflow-hidden pt-8 md:pt-14">
       {/* Background gradient + glows */}
       <div className="absolute inset-0 -z-10 hero-gradient" aria-hidden="true" />
-      <div
-        className="pointer-events-none absolute -top-20 -left-24 h-[42rem] w-[42rem] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(closest-side, hsl(var(--primary)/.35), transparent)", transform: parallaxA }}
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute top-40 -right-32 h-[36rem] w-[36rem] rounded-full blur-3xl"
-        style={{ background: "radial-gradient(closest-side, hsl(var(--primary-glow)/.32), transparent)", transform: parallaxB }}
-        aria-hidden
-      />
+      <div className="pointer-events-none absolute -top-20 -left-24 h-[42rem] w-[42rem] rounded-full blur-3xl" style={{
+      background: "radial-gradient(closest-side, hsl(var(--primary)/.35), transparent)",
+      transform: parallaxA
+    }} aria-hidden />
+      <div className="pointer-events-none absolute top-40 -right-32 h-[36rem] w-[36rem] rounded-full blur-3xl" style={{
+      background: "radial-gradient(closest-side, hsl(var(--primary-glow)/.32), transparent)",
+      transform: parallaxB
+    }} aria-hidden />
 
       <div className="container mx-auto grid md:grid-cols-2 gap-10 items-center py-14 md:py-20">
         <div className="animate-enter">
           <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs text-muted-foreground bg-background/60 backdrop-blur">
             ✨ Futuristic AI Hiring
           </div>
-          <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight font-display">
-            The Intelligent Solution for Talent Acquisition
-          </h1>
+          <h1 className="mt-4 text-4xl md:text-6xl font-bold tracking-tight font-display">AI that helps you hire the best talent</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-xl">
             We transform hiring by focusing on real skills, not just resumes. Our interview process goes beyond Q&A, allowing candidates to demonstrate their expertise through structured AI interviews and cutting‑edge analytics.
           </p>
@@ -53,13 +46,9 @@ const Hero = () => {
 
         <div className="relative animate-scale-in">
           <div className="glass rounded-xl shadow-[var(--shadow-elegant)] p-2">
-            <img
-              src={heroImage}
-              alt="Recruit41 platform UI screenshot"
-              className="w-full h-auto rounded-md"
-              loading="lazy"
-              style={{ transform: parallaxB }}
-            />
+            <img src={heroImage} alt="Recruit41 platform UI screenshot" className="w-full h-auto rounded-md" loading="lazy" style={{
+            transform: parallaxB
+          }} />
           </div>
         </div>
       </div>
@@ -78,8 +67,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
