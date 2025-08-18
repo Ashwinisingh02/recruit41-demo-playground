@@ -41,7 +41,7 @@ const InterviewCreationDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-lg mx-auto">
+  return <Card className="glass hover-scale max-w-2xl mx-auto">
       <CardHeader className="pb-4">
         
       </CardHeader>
@@ -107,7 +107,7 @@ const SchedulingDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-lg mx-auto">
+  return <Card className="glass hover-scale max-w-2xl mx-auto">
       <CardHeader className="pb-4">
         
       </CardHeader>
@@ -173,7 +173,7 @@ const InsightsDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-lg mx-auto">
+  return <Card className="glass hover-scale max-w-2xl mx-auto">
       <CardHeader className="pb-4">
         
       </CardHeader>
