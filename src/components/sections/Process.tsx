@@ -270,12 +270,17 @@ const Process = () => {
         
         {/* Step indicators */}
         <div className="flex justify-center mb-8">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-8">
             {processSteps.map((step, index) => <div key={step.number} className="flex items-center">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all duration-500 ${activeStep === index ? 'bg-gradient-primary text-primary-foreground shadow-elegant scale-110' : activeStep > index ? 'bg-primary/20 text-primary' : 'bg-muted text-muted-foreground'}`}>
-                  {step.number}
+                <div className="flex flex-col items-center">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all duration-500 ${activeStep === index ? 'bg-gradient-primary text-primary-foreground shadow-elegant scale-110' : activeStep > index ? 'bg-primary/20 text-primary' : 'bg-muted text-muted-foreground'}`}>
+                    {step.number}
+                  </div>
+                  <div className={`mt-2 text-sm font-medium text-center max-w-24 transition-all duration-500 ${activeStep === index ? 'text-primary' : 'text-muted-foreground'}`}>
+                    {step.title.split(' ').slice(0, 2).join(' ')}
+                  </div>
                 </div>
-                {index < processSteps.length - 1 && <div className={`w-8 h-0.5 mx-2 transition-all duration-500 ${activeStep > index ? 'bg-primary' : 'bg-muted'}`} />}
+                {index < processSteps.length - 1 && <div className={`w-8 h-0.5 mx-4 transition-all duration-500 ${activeStep > index ? 'bg-primary' : 'bg-muted'}`} />}
               </div>)}
           </div>
         </div>
