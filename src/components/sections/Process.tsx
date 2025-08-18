@@ -273,31 +273,39 @@ const Process = () => {
                 let transform = 'translate-x-full';
                 let scale = 'scale-75';
                 let opacity = 'opacity-0';
+                let zIndex = 'z-10';
+                let blur = '';
                 
                 if (isActive) {
                   position = 'flex';
                   transform = 'translate-x-0';
                   scale = 'scale-100';
                   opacity = 'opacity-100';
+                  zIndex = 'z-30';
+                  blur = '';
                 } else if (isPrev) {
                   position = 'flex';
                   transform = '-translate-x-[80%]';
                   scale = 'scale-75';
                   opacity = 'opacity-50';
+                  zIndex = 'z-20';
+                  blur = 'backdrop-blur-sm';
                 } else if (isNext) {
                   position = 'flex';
                   transform = 'translate-x-[80%]';
                   scale = 'scale-75';
                   opacity = 'opacity-50';
+                  zIndex = 'z-20';
+                  blur = 'backdrop-blur-sm';
                 }
                 
                 return (
                   <div
                     key={index}
-                    className={`absolute inset-0 ${position} items-center justify-center transition-all duration-700 ease-in-out ${transform} ${scale} ${opacity}`}
+                    className={`absolute inset-0 ${position} ${zIndex} items-center justify-center transition-all duration-700 ease-in-out ${transform} ${scale} ${opacity}`}
                   >
                     <div className="w-full max-w-2xl">
-                      <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-elegant">
+                      <div className={`bg-background/60 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-elegant ${blur} ${!isActive ? 'blur-sm' : ''}`}>
                         {/* Demo Component */}
                         <div className="flex justify-center mb-8">
                           <div className="w-full max-w-md">
@@ -310,9 +318,27 @@ const Process = () => {
                             {step.title}
                           </h3>
                           
-                          <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                          <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto mb-6">
                             {step.description}
                           </p>
+                          
+                          {/* Step Indicator */}
+                          <div className="flex justify-center items-center space-x-2">
+                            <span className="text-sm text-muted-foreground">Step</span>
+                            <div className="flex space-x-1">
+                              {processSteps.map((_, stepIndex) => (
+                                <div
+                                  key={stepIndex}
+                                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                                    stepIndex === index 
+                                      ? 'bg-primary' 
+                                      : 'bg-muted-foreground/30'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                            <span className="text-sm text-muted-foreground">{index + 1}/{processSteps.length}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
