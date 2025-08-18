@@ -75,10 +75,26 @@ const SchedulingDemo = ({ isActive }: { isActive: boolean }) => {
   const [currentStep, setCurrentStep] = useState(0);
   
   const steps = [
-    { text: "Sending invitations...", slots: 4 },
-    { text: "Candidate responses received", slots: 3 },
-    { text: "Auto-scheduling in progress", slots: 2 },
-    { text: "Interviews scheduled successfully!", slots: 1 }
+    { 
+      icon: <Upload className="w-6 h-6 text-primary" />, 
+      text: "Uploading candidates.csv...", 
+      subtext: "Loading candidate database" 
+    },
+    { 
+      icon: <Users className="w-6 h-6 text-primary animate-pulse" />, 
+      text: "Selecting qualified candidates", 
+      subtext: "3 candidates match criteria" 
+    },
+    { 
+      icon: <Calendar className="w-6 h-6 text-primary" />, 
+      text: "Sending interview invites...", 
+      subtext: "Email invitations in progress" 
+    },
+    { 
+      icon: <CheckCircle className="w-6 h-6 text-green-500" />, 
+      text: "Invitations sent successfully!", 
+      subtext: "Waiting for candidate responses" 
+    }
   ];
 
   useEffect(() => {
@@ -86,7 +102,7 @@ const SchedulingDemo = ({ isActive }: { isActive: boolean }) => {
     
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length);
-    }, 2000);
+    }, 2500);
     
     return () => clearInterval(interval);
   }, [isActive]);
@@ -94,31 +110,41 @@ const SchedulingDemo = ({ isActive }: { isActive: boolean }) => {
   return (
     <Card className="glass hover-scale max-w-md mx-auto">
       <CardHeader>
-        <CardTitle className="text-foreground flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-primary" />
+        <CardTitle className="flex items-center gap-2 text-foreground">
+          {steps[currentStep].icon}
           {steps[currentStep].text}
         </CardTitle>
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-          <span className="text-sm text-muted-foreground">Available</span>
-          <span className="text-sm text-muted-foreground">{steps[currentStep].slots} Slots Today</span>
-        </div>
       </CardHeader>
-      <CardContent className="space-y-3">
-        <div className={`flex items-center justify-between p-3 bg-muted rounded transition-all ${currentStep >= 3 ? 'bg-primary/10' : ''}`}>
-          <span className="text-foreground">10:00 AM - 11:00 AM</span>
-          <span className={`text-sm ${currentStep >= 3 ? 'text-primary font-medium' : 'text-primary'}`}>
-            {currentStep >= 3 ? 'Scheduled' : 'Available'}
-          </span>
-        </div>
-        <div className="flex items-center justify-between p-3 bg-muted rounded">
-          <span className="text-foreground">1:30 PM - 2:30 PM</span>
-          <span className="text-sm text-primary">Available</span>
-        </div>
-        <div className="flex items-center justify-between p-3 bg-muted rounded">
-          <span className="text-foreground">4:00 PM - 5:00 PM</span>
-          <span className="text-sm text-destructive">Booked</span>
-        </div>
+      <CardContent>
+        <p className="text-muted-foreground text-sm mb-4">{steps[currentStep].subtext}</p>
+        {currentStep === 1 && (
+          <div className="space-y-2">
+            <div className="flex items-center justify-between p-2 bg-primary/10 rounded text-sm border border-primary/20">
+              <span className="text-foreground">Alex Johnson</span>
+              <span className="text-primary">Selected</span>
+            </div>
+            <div className="flex items-center justify-between p-2 bg-primary/10 rounded text-sm border border-primary/20">
+              <span className="text-foreground">Sarah Chen</span>
+              <span className="text-primary">Selected</span>
+            </div>
+            <div className="flex items-center justify-between p-2 bg-muted rounded text-sm">
+              <span className="text-foreground">Mike Wilson</span>
+              <span className="text-muted-foreground">Not qualified</span>
+            </div>
+          </div>
+        )}
+        {currentStep === 3 && (
+          <div className="space-y-2">
+            <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-950 rounded text-sm">
+              <span className="text-foreground">Alex Johnson</span>
+              <span className="text-green-600 dark:text-green-400">Sent ✓</span>
+            </div>
+            <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-950 rounded text-sm">
+              <span className="text-foreground">Sarah Chen</span>
+              <span className="text-green-600 dark:text-green-400">Sent ✓</span>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   );
@@ -215,7 +241,7 @@ const processSteps = [
   {
     number: "2", 
     title: "Invite Candidates & Schedule",
-    description: "Seamlessly invite candidates to your custom technical assessments. Our scheduling system integrates with your calendar and sends automated reminders to ensure candidates are prepared and on time.",
+    description: "Upload candidate database and automatically send interview invites to qualified applicants.",
     component: SchedulingDemo
   },
   {
@@ -296,7 +322,12 @@ const Process = () => {
                   transitionDelay: `${index * 200}ms` 
                 }}
               >
-                <div className="text-center mb-6">
+                {/* Demo Component */}
+                <div className="flex justify-center mb-6">
+                  <DemoComponent isActive={isActive} />
+                </div>
+                
+                <div className="text-center">
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 transition-all duration-500 ${
                     isActive 
                       ? 'bg-gradient-primary text-primary-foreground shadow-elegant animate-pulse' 
@@ -309,14 +340,9 @@ const Process = () => {
                     {step.title}
                   </h3>
                   
-                  <p className="text-muted-foreground leading-relaxed mb-6">
+                  <p className="text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
-                </div>
-                
-                {/* Demo Component */}
-                <div className="flex justify-center mb-6">
-                  <DemoComponent isActive={isActive} />
                 </div>
               </div>
             );
