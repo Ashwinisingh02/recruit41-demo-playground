@@ -10,7 +10,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/54974109-dd05-4705-9f49-121e10853c08.png" 
             alt="Recruit41 logo" 
-            className="h-10 w-auto object-contain"
+            className="h-12 w-auto object-contain"
           />
         </Link>
         <div className="hidden md:flex items-center gap-6">
