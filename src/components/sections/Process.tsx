@@ -292,9 +292,12 @@ const Process = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const currentStep = processSteps[activeStep];
+  const DemoComponent = currentStep.component;
+
   return (
-    <section className="py-16 md:py-24 border-t">
-      <div className="container mx-auto">
+    <section className="py-16 md:py-24 border-t min-h-screen flex flex-col">
+      <div className="container mx-auto flex-1 flex flex-col">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-foreground">How Recruit41 Works</h2>
           <p className="text-lg text-muted-foreground mb-4">
@@ -303,50 +306,52 @@ const Process = () => {
           <p className="text-muted-foreground">From interview creation to final insights, we've got you covered.</p>
         </div>
         
-        <div className="grid md:grid-cols-3 gap-8">
-          {processSteps.map((step, index) => {
-            const isVisible = visibleSteps[index];
-            const isActive = activeStep === index;
-            const DemoComponent = step.component;
-            
-            return (
-              <div
-                key={step.number}
-                ref={el => stepRefs.current[index] = el}
-                className={`transform transition-all duration-700 ${
-                  isVisible 
-                    ? 'translate-y-0 opacity-100' 
-                    : 'translate-y-8 opacity-0'
-                } ${isActive ? 'ring-2 ring-primary ring-opacity-50 rounded-xl p-4' : 'p-4'}`}
-                style={{ 
-                  transitionDelay: `${index * 200}ms` 
-                }}
-              >
-                {/* Demo Component */}
-                <div className="flex justify-center mb-6">
-                  <DemoComponent isActive={isActive} />
+        {/* Step indicators */}
+        <div className="flex justify-center mb-8">
+          <div className="flex items-center space-x-4">
+            {processSteps.map((step, index) => (
+              <div key={step.number} className="flex items-center">
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all duration-500 ${
+                  activeStep === index 
+                    ? 'bg-gradient-primary text-primary-foreground shadow-elegant scale-110' 
+                    : activeStep > index
+                    ? 'bg-primary/20 text-primary'
+                    : 'bg-muted text-muted-foreground'
+                }`}>
+                  {step.number}
                 </div>
-                
-                <div className="text-center">
-                  <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 transition-all duration-500 ${
-                    isActive 
-                      ? 'bg-gradient-primary text-primary-foreground shadow-elegant animate-pulse' 
-                      : 'bg-gradient-primary text-primary-foreground shadow-elegant'
-                  }`}>
-                    {step.number}
-                  </div>
-                  
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                    {step.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
+                {index < processSteps.length - 1 && (
+                  <div className={`w-8 h-0.5 mx-2 transition-all duration-500 ${
+                    activeStep > index ? 'bg-primary' : 'bg-muted'
+                  }`} />
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Single step display */}
+        <div className="flex-1 flex items-center justify-center">
+          <div className="w-full max-w-4xl">
+            <div className="transform transition-all duration-700 animate-fade-in">
+              {/* Demo Component - Full Screen */}
+              <div className="flex justify-center mb-8">
+                <div className="w-full max-w-2xl">
+                  <DemoComponent isActive={true} />
                 </div>
               </div>
-            );
-          })}
+              
+              <div className="text-center">
+                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                  {currentStep.title}
+                </h3>
+                
+                <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                  {currentStep.description}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
