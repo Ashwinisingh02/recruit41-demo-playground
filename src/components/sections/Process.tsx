@@ -211,19 +211,19 @@ const InsightsDemo = ({
     </Card>;
 };
 const processSteps = [{
-  number: "01",
+  number: "Create",
   title: "Create Interviews in Minutes",
   description: "Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.",
   component: InterviewCreationDemo,
   icon: Upload
 }, {
-  number: "02",
+  number: "Schedule",
   title: "Invite Candidates & Schedule",
   description: "Upload candidate database and automatically send interview invites to qualified applicants.",
   component: SchedulingDemo,
   icon: Users
 }, {
-  number: "03",
+  number: "Review",
   title: "Review AI-Powered Insights",
   description: "Our AI analyzes candidate performance across multiple dimensions, providing objective scoring and detailed insights. Compare candidates side-by-side and make data-driven hiring decisions with confidence.",
   component: InsightsDemo,
