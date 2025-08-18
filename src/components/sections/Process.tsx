@@ -1,9 +1,9 @@
-import { ArrowRight, Upload, FileText, Zap, CheckCircle } from "lucide-react";
+import { Upload, FileText, Zap, CheckCircle, Calendar, Users, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Automated demo component for step 1
-const InterviewCreationDemo = () => {
+const InterviewCreationDemo = ({ isActive }: { isActive: boolean }) => {
   const [currentStep, setCurrentStep] = useState(0);
   
   const steps = [
@@ -30,12 +30,14 @@ const InterviewCreationDemo = () => {
   ];
 
   useEffect(() => {
+    if (!isActive) return;
+    
     const interval = setInterval(() => {
       setCurrentStep((prev) => (prev + 1) % steps.length);
     }, 2500);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [isActive]);
 
   return (
     <Card className="glass hover-scale max-w-md mx-auto">
@@ -68,91 +70,165 @@ const InterviewCreationDemo = () => {
   );
 };
 
-const processSteps = [
-  {
-    number: "1",
-    title: "Create & Customize Your Interview",
-    description: "Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.",
-    mockup: <InterviewCreationDemo />
-  },
-  {
-    number: "2",
-    title: "Invite Candidates & Schedule",
-    description: "Seamlessly invite candidates to your custom technical assessments. Our scheduling system integrates with your calendar and sends automated reminders to ensure candidates are prepared and on time.",
-    mockup: (
-      <Card className="glass hover-scale max-w-md mx-auto">
-        <CardHeader>
-          <CardTitle className="text-foreground">Candidate Scheduling</CardTitle>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-primary rounded-full"></div>
-            <span className="text-sm text-muted-foreground">Available</span>
-            <span className="text-sm text-muted-foreground">4 Slots Today</span>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="flex items-center justify-between p-3 bg-muted rounded">
-            <span className="text-foreground">10:00 AM - 11:00 AM</span>
-            <span className="text-sm text-primary">Available</span>
-          </div>
-          <div className="flex items-center justify-between p-3 bg-muted rounded">
-            <span className="text-foreground">1:30 PM - 2:30 PM</span>
-            <span className="text-sm text-primary">Available</span>
-          </div>
-          <div className="flex items-center justify-between p-3 bg-muted rounded">
-            <span className="text-foreground">4:00 PM - 5:00 PM</span>
-            <span className="text-sm text-destructive">Booked</span>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  },
-  {
-    number: "3",
-    title: "Review AI-Powered Insights",
-    description: "Our AI analyzes candidate performance across multiple dimensions, providing objective scoring and detailed insights. Compare candidates side-by-side and make data-driven hiring decisions with confidence.",
-    mockup: (
-      <Card className="glass hover-scale max-w-md mx-auto">
-        <CardHeader>
-          <div className="flex items-center justify-between">
-            <CardTitle className="text-foreground">Alex Johnson</CardTitle>
+// Automated demo component for step 2
+const SchedulingDemo = ({ isActive }: { isActive: boolean }) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  
+  const steps = [
+    { text: "Sending invitations...", slots: 4 },
+    { text: "Candidate responses received", slots: 3 },
+    { text: "Auto-scheduling in progress", slots: 2 },
+    { text: "Interviews scheduled successfully!", slots: 1 }
+  ];
+
+  useEffect(() => {
+    if (!isActive) return;
+    
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % steps.length);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, [isActive]);
+
+  return (
+    <Card className="glass hover-scale max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle className="text-foreground flex items-center gap-2">
+          <Calendar className="w-5 h-5 text-primary" />
+          {steps[currentStep].text}
+        </CardTitle>
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+          <span className="text-sm text-muted-foreground">Available</span>
+          <span className="text-sm text-muted-foreground">{steps[currentStep].slots} Slots Today</span>
+        </div>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className={`flex items-center justify-between p-3 bg-muted rounded transition-all ${currentStep >= 3 ? 'bg-primary/10' : ''}`}>
+          <span className="text-foreground">10:00 AM - 11:00 AM</span>
+          <span className={`text-sm ${currentStep >= 3 ? 'text-primary font-medium' : 'text-primary'}`}>
+            {currentStep >= 3 ? 'Scheduled' : 'Available'}
+          </span>
+        </div>
+        <div className="flex items-center justify-between p-3 bg-muted rounded">
+          <span className="text-foreground">1:30 PM - 2:30 PM</span>
+          <span className="text-sm text-primary">Available</span>
+        </div>
+        <div className="flex items-center justify-between p-3 bg-muted rounded">
+          <span className="text-foreground">4:00 PM - 5:00 PM</span>
+          <span className="text-sm text-destructive">Booked</span>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+// Automated demo component for step 3
+const InsightsDemo = ({ isActive }: { isActive: boolean }) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  
+  const steps = [
+    { name: "Processing interviews...", score: 0, progress: 0 },
+    { name: "Analyzing responses...", score: 6.5, progress: 45 },
+    { name: "Generating insights...", score: 8.2, progress: 78 },
+    { name: "Alex Johnson", score: 8.5, progress: 85 }
+  ];
+
+  useEffect(() => {
+    if (!isActive) return;
+    
+    const interval = setInterval(() => {
+      setCurrentStep((prev) => (prev + 1) % steps.length);
+    }, 2000);
+    
+    return () => clearInterval(interval);
+  }, [isActive]);
+
+  const currentData = steps[currentStep];
+
+  return (
+    <Card className="glass hover-scale max-w-md mx-auto">
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-foreground flex items-center gap-2">
+            <BarChart3 className="w-5 h-5 text-primary" />
+            {currentData.name}
+          </CardTitle>
+          {currentStep === 3 && (
             <div className="flex items-center gap-1">
-              <span className="text-2xl font-bold text-primary">8.5</span>
+              <span className="text-2xl font-bold text-primary">{currentData.score}</span>
               <div className="flex">
                 {[1,2,3,4,5].map((star) => (
                   <div key={star} className={`w-4 h-4 ${star <= 4 ? 'text-primary' : 'text-muted'}`}>★</div>
                 ))}
               </div>
             </div>
-          </div>
-          <div className="w-full bg-muted rounded-full h-2">
-            <div className="bg-primary h-2 rounded-full" style={{width: '85%'}}></div>
-          </div>
-        </CardHeader>
-        
-        <CardContent className="space-y-4">
-          <div className="bg-muted p-4 rounded">
-            <h4 className="font-medium text-foreground mb-2">AI Summary</h4>
-            <p className="text-sm text-muted-foreground">Strong technical foundation with solid React knowledge. Excellent problem-solving approach and communication skills.</p>
-          </div>
-          
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-primary/10 p-3 rounded">
-              <div className="text-sm font-medium text-primary">Risk Assessment</div>
-              <div className="text-xs text-primary/80">Low Risk</div>
+          )}
+        </div>
+        <div className="w-full bg-muted rounded-full h-2">
+          <div 
+            className="bg-primary h-2 rounded-full transition-all duration-500" 
+            style={{width: `${currentData.progress}%`}}
+          ></div>
+        </div>
+      </CardHeader>
+      
+      <CardContent className="space-y-4">
+        {currentStep === 3 ? (
+          <>
+            <div className="bg-muted p-4 rounded">
+              <h4 className="font-medium text-foreground mb-2">AI Summary</h4>
+              <p className="text-sm text-muted-foreground">Strong technical foundation with solid React knowledge. Excellent problem-solving approach and communication skills.</p>
             </div>
-            <div className="bg-accent/20 p-3 rounded">
-              <div className="text-sm font-medium text-accent-foreground">Technical Skills</div>
-              <div className="text-xs text-muted-foreground">Excellent</div>
+            
+            <div className="grid grid-cols-2 gap-3">
+              <div className="bg-primary/10 p-3 rounded">
+                <div className="text-sm font-medium text-primary">Risk Assessment</div>
+                <div className="text-xs text-primary/80">Low Risk</div>
+              </div>
+              <div className="bg-accent/20 p-3 rounded">
+                <div className="text-sm font-medium text-accent-foreground">Technical Skills</div>
+                <div className="text-xs text-muted-foreground">Excellent</div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className="text-center py-8">
+            <div className="animate-pulse text-muted-foreground">
+              AI analyzing candidate performance...
             </div>
           </div>
-        </CardContent>
-      </Card>
-    )
+        )}
+      </CardContent>
+    </Card>
+  );
+};
+
+const processSteps = [
+  {
+    number: "1",
+    title: "Create & Customize Your Interview",
+    description: "Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.",
+    component: InterviewCreationDemo
+  },
+  {
+    number: "2", 
+    title: "Invite Candidates & Schedule",
+    description: "Seamlessly invite candidates to your custom technical assessments. Our scheduling system integrates with your calendar and sends automated reminders to ensure candidates are prepared and on time.",
+    component: SchedulingDemo
+  },
+  {
+    number: "3",
+    title: "Review AI-Powered Insights", 
+    description: "Our AI analyzes candidate performance across multiple dimensions, providing objective scoring and detailed insights. Compare candidates side-by-side and make data-driven hiring decisions with confidence.",
+    component: InsightsDemo
   }
 ];
 
 const Process = () => {
   const [visibleSteps, setVisibleSteps] = useState<boolean[]>(new Array(processSteps.length).fill(false));
+  const [activeStep, setActiveStep] = useState(0);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -181,6 +257,15 @@ const Process = () => {
     };
   }, []);
 
+  // Global step cycling effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % processSteps.length);
+    }, 10000); // Each step runs for 10 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="py-16 md:py-24 border-t">
       <div className="container mx-auto">
@@ -195,6 +280,8 @@ const Process = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {processSteps.map((step, index) => {
             const isVisible = visibleSteps[index];
+            const isActive = activeStep === index;
+            const DemoComponent = step.component;
             
             return (
               <div
@@ -204,13 +291,17 @@ const Process = () => {
                   isVisible 
                     ? 'translate-y-0 opacity-100' 
                     : 'translate-y-8 opacity-0'
-                }`}
+                } ${isActive ? 'ring-2 ring-primary ring-opacity-50 rounded-xl p-4' : 'p-4'}`}
                 style={{ 
                   transitionDelay: `${index * 200}ms` 
                 }}
               >
                 <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center text-primary-foreground font-bold text-xl shadow-elegant mx-auto mb-4">
+                  <div className={`w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl mx-auto mb-4 transition-all duration-500 ${
+                    isActive 
+                      ? 'bg-gradient-primary text-primary-foreground shadow-elegant animate-pulse' 
+                      : 'bg-gradient-primary text-primary-foreground shadow-elegant'
+                  }`}>
                     {step.number}
                   </div>
                   
@@ -223,16 +314,9 @@ const Process = () => {
                   </p>
                 </div>
                 
-                {/* Mockup */}
+                {/* Demo Component */}
                 <div className="flex justify-center mb-6">
-                  {step.mockup}
-                </div>
-                
-                <div className="text-center">
-                  <button className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group story-link">
-                    Learn more 
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </button>
+                  <DemoComponent isActive={isActive} />
                 </div>
               </div>
             );
