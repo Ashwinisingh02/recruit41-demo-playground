@@ -237,7 +237,7 @@ const processSteps = [{
 }];
 
 const Process = () => {
-  const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
+  const [activeStep, setActiveStep] = useState<number | null>(null);
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -246,7 +246,9 @@ const Process = () => {
         entries.forEach((entry) => {
           const index = parseInt(entry.target.getAttribute('data-step') || '0');
           if (entry.isIntersecting) {
-            setVisibleSteps(prev => new Set([...prev, index]));
+            setActiveStep(index);
+          } else if (activeStep === index) {
+            setActiveStep(null);
           }
         });
       },
@@ -261,7 +263,7 @@ const Process = () => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [activeStep]);
 
   return (
     <section className="py-16 md:py-24 min-h-screen bg-gradient-subtle relative">
@@ -283,7 +285,7 @@ const Process = () => {
           {/* Steps */}
           <div className="space-y-24">
             {processSteps.map((step, index) => {
-              const isVisible = visibleSteps.has(index);
+              const isVisible = activeStep === index;
               const StepComponent = step.component;
               const IconComponent = step.icon;
               
