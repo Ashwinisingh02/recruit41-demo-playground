@@ -20,10 +20,10 @@ const Navbar = () => {
           />
         </Link>
         <div className="hidden md:flex items-center gap-6">
-          <a href="#process" className="text-sm text-muted-foreground hover:text-foreground story-link">Process</a>
-          <a href="#features" className="text-sm text-muted-foreground hover:text-foreground story-link">Features</a>
-          <a href="#jobtypes" className="text-sm text-muted-foreground hover:text-foreground story-link">Job Types</a>
-          <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground story-link">Pricing</a>
+          <a href="#process" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Process</a>
+          <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Features</a>
+          <a href="#interview-types" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Interview Types</a>
+          <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Pricing</a>
           <NavLink to="/demo">
             <Button variant="hero" size="sm">Try a demo</Button>
           </NavLink>
