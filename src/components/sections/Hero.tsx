@@ -35,8 +35,8 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl font-bold tracking-tight font-display md:text-7xl lg:text-8xl">
-            The Future of Hiring? Already Here. 
-            <span className="block mt-2">Cut Your Time-to-Hire in Half.</span>
+            The Future of Hiring is Here. 
+            
           </h1>
           
           <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -64,11 +64,7 @@ const Hero = () => {
         {/* Product demo image */}
         <div className="relative mt-16 animate-scale-in">
           <div className="glass rounded-2xl shadow-[var(--shadow-elegant)] p-3 max-w-4xl mx-auto">
-            <img 
-              src={dashboardPreview} 
-              alt="Recruit41 AI hiring dashboard interface showing candidate profiles and interview scheduling"
-              className="w-full h-auto rounded-lg"
-            />
+            <img src={dashboardPreview} alt="Recruit41 AI hiring dashboard interface showing candidate profiles and interview scheduling" className="w-full h-auto rounded-lg" />
           </div>
         </div>
       </div>
