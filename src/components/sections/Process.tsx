@@ -209,7 +209,7 @@ const InsightsDemo = ({
 
 const processSteps = [{
   number: "01",
-  title: "Create & Customize Your Interview",
+  title: "Create Interviews in Minutes",
   description: "Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.",
   component: InterviewCreationDemo,
   icon: Upload
