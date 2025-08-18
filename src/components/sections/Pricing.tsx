@@ -52,39 +52,51 @@ const Pricing = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {plans.map((p) => (
-            <div key={p.name} className={`rounded-2xl border p-6 hover-scale ${p.highlighted ? "shadow-[var(--shadow-glow)]" : ""} glass relative`}>
-              {p.highlighted && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
-                    Most Popular
-                  </span>
+        <div className="max-w-4xl mx-auto">
+          <div className="rounded-2xl border p-8 glass">
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              {plans.map((p) => (
+                <div key={p.name} className="text-center">
+                  <div className="mb-2 text-lg font-semibold text-foreground">{p.name}</div>
+                  <div className="text-muted-foreground text-sm">{p.subtitle}</div>
                 </div>
-              )}
-              <div className="mb-2 text-lg font-semibold text-foreground">{p.name}</div>
-              <div className="mb-6 text-muted-foreground">{p.subtitle}</div>
-              
-              <ul className="space-y-3 text-sm mb-8">
-                {p.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3">
+              ))}
+            </div>
+            
+            <div className="border-t pt-8">
+              <h3 className="text-xl font-semibold mb-6 text-center">All Features Included</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  "Resume screening",
+                  "Interview scheduling", 
+                  "Virtual interviews",
+                  "AI score analytics",
+                  "Customizable assessments",
+                  "Comprehensive analytics",
+                  "Interview report insights",
+                  "Advanced integrations",
+                  "Dedicated support",
+                  "Enterprise security",
+                  "Customization options"
+                ].map((feature) => (
+                  <div key={feature} className="flex items-start gap-3">
                     <Check className="text-primary mt-0.5 w-4 h-4 flex-shrink-0" />
-                    <span>{f}</span>
-                  </li>
+                    <span className="text-sm">{feature}</span>
+                  </div>
                 ))}
-              </ul>
-              
-              <div className="mt-auto">
-                <Button 
-                  variant={p.highlighted ? "default" : "outline"} 
-                  className="w-full"
-                  onClick={() => window.location.href = 'mailto:contact@recruit41.com?subject=Pricing Inquiry - ' + p.name}
-                >
-                  Get Pricing
-                </Button>
               </div>
             </div>
-          ))}
+            
+            <div className="text-center mt-8 pt-6 border-t">
+              <Button 
+                size="lg"
+                onClick={() => window.location.href = 'mailto:contact@recruit41.com?subject=Pricing Inquiry'}
+                className="px-8"
+              >
+                Get Custom Pricing
+              </Button>
+            </div>
+          </div>
         </div>
         
         <div className="text-center mt-12">
