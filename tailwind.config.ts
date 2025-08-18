@@ -108,6 +108,10 @@ export default {
 				'gradient-border': {
 					'0%': { transform: 'rotate(0deg)' },
 					'100%': { transform: 'rotate(360deg)' }
+				},
+				'glow-pulse': {
+					'0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+					'50%': { opacity: '0.8', transform: 'scale(1.05)' }
 				}
 			},
 			animation: {
@@ -120,6 +124,7 @@ export default {
 				'slide-in-right': 'slide-in-right 0.3s ease-out both',
 				'slide-out-right': 'slide-out-right 0.3s ease-out both',
 				'gradient-border': 'gradient-border 1.5s linear infinite',
+				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
 				enter: 'fade-in 0.35s ease-out, scale-in 0.25s ease-out',
 				exit: 'fade-out 0.35s ease-out, scale-out 0.25s ease-out'
 			}
