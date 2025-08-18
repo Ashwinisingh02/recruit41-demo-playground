@@ -6,6 +6,7 @@ import Hero from "@/components/sections/Hero";
 import SocialProof from "@/components/sections/SocialProof";
 import Features from "@/components/sections/Features";
 import InterviewStyles from "@/components/sections/InterviewStyles";
+import JobTypes from "@/components/sections/JobTypes";
 import Process from "@/components/sections/Process";
 import Pricing from "@/components/sections/Pricing";
 import CTA from "@/components/sections/CTA";
@@ -47,6 +48,8 @@ const Home = () => {
       <Features />
 
       <InterviewStyles />
+
+      <JobTypes />
 
       <Process />
 
