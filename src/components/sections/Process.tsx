@@ -1,6 +1,7 @@
-import { Upload, FileText, Zap, CheckCircle, Calendar, Users, BarChart3 } from "lucide-react";
+import { Upload, FileText, Zap, CheckCircle, Calendar, Users, BarChart3, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 // Automated demo component for step 1
 const InterviewCreationDemo = ({
@@ -223,30 +224,7 @@ const processSteps = [{
   component: InsightsDemo
 }];
 const Process = () => {
-  const [visibleSteps, setVisibleSteps] = useState<boolean[]>(new Array(processSteps.length).fill(false));
   const [activeStep, setActiveStep] = useState(0);
-  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
-  useEffect(() => {
-    const observers = stepRefs.current.map((ref, index) => {
-      if (!ref) return null;
-      const observer = new IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          setVisibleSteps(prev => {
-            const newState = [...prev];
-            newState[index] = true;
-            return newState;
-          });
-        }
-      }, {
-        threshold: 0.2
-      });
-      observer.observe(ref);
-      return observer;
-    });
-    return () => {
-      observers.forEach(observer => observer?.disconnect());
-    };
-  }, []);
 
   // Global step cycling effect
   useEffect(() => {
@@ -256,57 +234,92 @@ const Process = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const goToNext = () => {
+    setActiveStep(prev => (prev + 1) % processSteps.length);
+  };
+
+  const goToPrev = () => {
+    setActiveStep(prev => (prev - 1 + processSteps.length) % processSteps.length);
+  };
+
+  const goToStep = (index: number) => {
+    setActiveStep(index);
+  };
+
   const currentStep = processSteps[activeStep];
   const DemoComponent = currentStep.component;
-  return <section className="py-16 md:py-24 border-t min-h-screen flex flex-col">
+  return <section className="py-16 md:py-24 border-t min-h-screen flex flex-col bg-gradient-subtle">
       <div className="container mx-auto flex-1 flex flex-col">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-foreground">How Recruit41 Works</h2>
           <p className="text-lg text-muted-foreground mb-4">
             Streamline your hiring process with our intelligent three-step approach that saves time and improves candidate quality.
           </p>
-          
         </div>
         
-        {/* Step indicators */}
-        <div className="flex justify-center mb-8">
-          <div className="flex items-center space-x-8">
-            {processSteps.map((step, index) => <div key={step.number} className="flex items-center">
-                <div className="flex flex-col items-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all duration-500 ${activeStep === index ? 'bg-gradient-primary text-primary-foreground shadow-elegant scale-110' : activeStep > index ? 'bg-primary/20 text-primary' : 'bg-muted text-muted-foreground'}`}>
-                    {step.number}
+        {/* Slideshow Container */}
+        <div className="flex-1 flex items-center justify-center relative">
+          <div className="w-full max-w-6xl relative">
+            
+            {/* Navigation Arrows */}
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={goToPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background shadow-lg"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background shadow-lg"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+
+            {/* Main Content */}
+            <div className="px-16">
+              <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-elegant">
+                <div className="transform transition-all duration-700 animate-fade-in">
+                  {/* Demo Component - Full Screen */}
+                  <div className="flex justify-center mb-8">
+                    <div className="w-full max-w-2xl">
+                      <DemoComponent isActive={true} />
+                    </div>
                   </div>
-                  <div className={`mt-2 text-sm font-medium text-center max-w-24 transition-all duration-500 ${activeStep === index ? 'text-primary' : 'text-muted-foreground'}`}>
-                    {step.title.split(' ').slice(0, 2).join(' ')}
+                  
+                  <div className="text-center">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                      {currentStep.title}
+                    </h3>
+                    
+                    <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+                      {currentStep.description}
+                    </p>
                   </div>
                 </div>
-                {index < processSteps.length - 1 && <div className={`w-8 h-0.5 mx-4 transition-all duration-500 ${activeStep > index ? 'bg-primary' : 'bg-muted'}`} />}
-              </div>)}
-          </div>
-        </div>
-        
-        {/* Single step display */}
-        <div className="flex-1 flex items-center justify-center">
-          <div className="w-full max-w-4xl">
-            <div className="transform transition-all duration-700 animate-fade-in">
-              {/* Demo Component - Full Screen */}
-              <div className="flex justify-center mb-8">
-                <div className="w-full max-w-2xl">
-                  <DemoComponent isActive={true} />
-                </div>
-              </div>
-              
-              <div className="text-center">
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                  {currentStep.title}
-                </h3>
-                
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                  {currentStep.description}
-                </p>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Dot Indicators */}
+        <div className="flex justify-center mt-8 space-x-2">
+          {processSteps.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToStep(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                activeStep === index 
+                  ? 'bg-primary scale-125' 
+                  : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>;
