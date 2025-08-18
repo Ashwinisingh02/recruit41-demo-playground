@@ -41,25 +41,25 @@ const InterviewCreationDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-md mx-auto">
-      <CardHeader>
+  return <Card className="glass hover-scale max-w-lg mx-auto">
+      <CardHeader className="pb-4">
         
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="px-8 pb-8">
+        <div className="space-y-6">
           {/* Progress Bar */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
                   {step.completed ? '✓' : index + 1}
                 </div>
-                {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-2 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
+                {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
               </div>)}
           </div>
           
           {/* Step Labels */}
-          <div className="grid grid-cols-4 gap-2 text-xs">
-            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+          <div className="grid grid-cols-4 gap-3 text-sm">
+            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 leading-tight ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
                 {step.text}
               </div>)}
           </div>
@@ -107,25 +107,25 @@ const SchedulingDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-md mx-auto">
-      <CardHeader>
+  return <Card className="glass hover-scale max-w-lg mx-auto">
+      <CardHeader className="pb-4">
         
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="px-8 pb-8">
+        <div className="space-y-6">
           {/* Progress Bar */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
                   {step.completed ? '✓' : index + 1}
                 </div>
-                {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-2 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
+                {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
               </div>)}
           </div>
           
           {/* Step Labels */}
-          <div className="grid grid-cols-4 gap-2 text-xs">
-            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+          <div className="grid grid-cols-4 gap-3 text-sm">
+            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 leading-tight ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
                 {step.text}
               </div>)}
           </div>
@@ -173,31 +173,31 @@ const InsightsDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-md mx-auto">
-      <CardHeader>
+  return <Card className="glass hover-scale max-w-lg mx-auto">
+      <CardHeader className="pb-4">
         
       </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      <CardContent className="px-8 pb-8">
+        <div className="space-y-6">
           {/* Progress Bar */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
                   {step.completed ? '✓' : index + 1}
                 </div>
-                {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-2 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
+                {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
               </div>)}
           </div>
           
           {/* Step Labels */}
-          <div className="grid grid-cols-4 gap-2 text-xs">
-            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
+          <div className="grid grid-cols-4 gap-3 text-sm">
+            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 leading-tight ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
                 {step.text}
               </div>)}
           </div>
           
           {/* Results Preview */}
-          {currentStep === 3 && <div className="mt-4 p-3 bg-green-50 dark:bg-green-950 rounded border border-green-200 dark:border-green-800">
+          {currentStep === 3 && <div className="mt-6 p-4 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-800">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm font-medium text-green-800 dark:text-green-200">Alex Johnson</span>
                 <span className="text-lg font-bold text-green-600 dark:text-green-400">8.5/10</span>
@@ -268,7 +268,7 @@ const Process = () => {
           <div className="absolute left-8 md:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
           
           {/* Steps */}
-          <div className="space-y-24">
+          <div className="space-y-32 md:space-y-40">
             {processSteps.map((step, index) => {
             const isVisible = activeStep === index;
             const StepComponent = step.component;
