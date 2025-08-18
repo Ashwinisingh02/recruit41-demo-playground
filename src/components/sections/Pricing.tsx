@@ -36,9 +36,12 @@ const Pricing = () => {
             </div>
             
             <div className="text-center mt-8 pt-6 border-t">
-              <Button size="lg" onClick={() => window.location.href = 'mailto:contact@recruit41.com?subject=Pricing Inquiry'} className="px-8">
+              <a 
+                href="mailto:contact@recruit41.com?subject=Pricing Inquiry" 
+                className="text-primary hover:text-primary/80 transition-colors text-lg font-medium"
+              >
                 contact@recruit41.com
-              </Button>
+              </a>
             </div>
           </div>
         </div>
