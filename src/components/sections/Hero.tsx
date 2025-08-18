@@ -76,7 +76,7 @@ const Hero = () => {
       {/* Dark technology band with rotating demo badge */}
       <div className="container mx-auto">
         <div className="relative mx-auto overflow-hidden rounded-2xl px-6 py-16 text-center shadow-[var(--shadow-glow)] technology-band">
-          <h2 className="mx-auto max-w-4xl text-xl md:text-2xl font-medium">
+          <h2 className="mx-auto max-w-4xl text-xl md:text-2xl font-medium text-foreground">
             Our intelligent system seamlessly coordinates interview slots, taking availability of both candidates and interviewers into account.
           </h2>
           {/* Demo button */}
