@@ -7,7 +7,11 @@ const Navbar = () => {
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-lg font-bold tracking-tight font-display">Recruit41</span>
+          <img 
+            src="/lovable-uploads/7159772f-1001-4490-80ca-27bbdfb5826c.png" 
+            alt="Recruit41 logo" 
+            className="h-8 w-auto"
+          />
         </Link>
         <div className="hidden md:flex items-center gap-6">
           <a href="#features" className="text-sm text-muted-foreground hover:text-foreground story-link">Features</a>
