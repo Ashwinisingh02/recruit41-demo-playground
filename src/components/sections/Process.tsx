@@ -50,8 +50,8 @@ const InterviewCreationDemo = ({
           {/* Progress Bar */}
           <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
-                  {step.completed ? '✓' : index + 1}
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                  {step.completed ? '✓' : ['UPLOAD', 'ANALYZE', 'GENERATE', 'READY'][index]}
                 </div>
                 {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
               </div>)}
@@ -116,8 +116,8 @@ const SchedulingDemo = ({
           {/* Progress Bar */}
           <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
-                  {step.completed ? '✓' : index + 1}
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                  {step.completed ? '✓' : ['UPLOAD', 'FILTER', 'SEND', 'SCHEDULE'][index]}
                 </div>
                 {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
               </div>)}
@@ -182,8 +182,8 @@ const InsightsDemo = ({
           {/* Progress Bar */}
           <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
-                  {step.completed ? '✓' : index + 1}
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${step.completed ? 'bg-green-500 text-white' : step.current ? 'bg-primary text-primary-foreground animate-pulse' : 'bg-muted text-muted-foreground'}`}>
+                  {step.completed ? '✓' : ['PROCESS', 'ANALYZE', 'GENERATE', 'REPORT'][index]}
                 </div>
                 {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
               </div>)}
