@@ -37,7 +37,7 @@ const Pricing = () => {
             
             <div className="text-center mt-8 pt-6 border-t">
               <Button size="lg" onClick={() => window.location.href = 'mailto:contact@recruit41.com?subject=Pricing Inquiry'} className="px-8">
-                Get Custom Pricing
+                contact@recruit41.com
               </Button>
             </div>
           </div>
