@@ -301,13 +301,7 @@ const Process = () => {
                     {/* Demo Component */}
                     <div className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-50 translate-x-8 scale-95'}`}>
                       <div className="relative">
-                        {/* Animated gradient border for active step */}
-                        {isVisible && (
-                          <div className="absolute -inset-1 rounded-2xl opacity-75 blur-sm">
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl animate-gradient-border"></div>
-                          </div>
-                        )}
-                        <div className={`absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}></div>
+                        <div className={`absolute -inset-4 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-xl transition-all duration-300 ${isVisible ? 'opacity-100 animate-pulse' : 'opacity-0'}`}></div>
                         <div className="relative">
                           <StepComponent isActive={isVisible} />
                         </div>
