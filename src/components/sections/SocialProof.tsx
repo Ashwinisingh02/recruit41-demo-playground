@@ -1,26 +1,45 @@
 const SocialProof = () => {
-  const companies = [
-    { name: "Miro", logo: "M" },
-    { name: "Stripe", logo: "stripe" },
-    { name: "Google", logo: "Google" },
-    { name: "Adobe", logo: "Adobe" },
-    { name: "Spotify", logo: "Spotify" },
-    { name: "Microsoft", logo: "Microsoft" }
+  const stats = [
+    {
+      value: "2M+",
+      title: "Candidate Interactions",
+      subtitle: "Processed through our AI platform"
+    },
+    {
+      value: "87%",
+      title: "Better Hiring Accuracy", 
+      subtitle: "Compared to traditional methods"
+    },
+    {
+      value: "65%",
+      title: "Time Reduction",
+      subtitle: "In overall hiring process"
+    },
+    {
+      value: "93%",
+      title: "Client Satisfaction",
+      subtitle: "Across all our implementations"
+    }
   ];
 
   return (
-    <section className="py-12 border-b border-border/40">
-      <div className="container mx-auto">
-        <p className="text-center text-sm text-muted-foreground mb-8">
-          Trusted by teams at leading companies
-        </p>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60">
-          {companies.map((company) => (
+    <section className="py-16 md:py-20">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {stats.map((stat, index) => (
             <div
-              key={company.name}
-              className="flex items-center justify-center h-8 text-muted-foreground font-medium text-lg"
+              key={index}
+              className="glass rounded-2xl p-6 md:p-8 text-center hover-scale"
             >
-              {company.logo}
+              <div className="text-4xl md:text-5xl font-bold text-primary mb-3">
+                {stat.value}
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold text-foreground mb-2">
+                {stat.title}
+              </h3>
+              <p className="text-sm md:text-base text-muted-foreground">
+                {stat.subtitle}
+              </p>
             </div>
           ))}
         </div>
