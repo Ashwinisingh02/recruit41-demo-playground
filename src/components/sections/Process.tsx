@@ -41,7 +41,7 @@ const InterviewCreationDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-2xl mx-auto">
+  return <Card className="glass hover-scale max-w-3xl mx-auto">
       <CardHeader className="pb-4">
         
       </CardHeader>
@@ -107,7 +107,7 @@ const SchedulingDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-2xl mx-auto">
+  return <Card className="glass hover-scale max-w-3xl mx-auto">
       <CardHeader className="pb-4">
         
       </CardHeader>
@@ -173,7 +173,7 @@ const InsightsDemo = ({
     completed: index < currentStep,
     current: index === currentStep
   }));
-  return <Card className="glass hover-scale max-w-2xl mx-auto">
+  return <Card className="glass hover-scale max-w-3xl mx-auto">
       <CardHeader className="pb-4">
         
       </CardHeader>
@@ -268,7 +268,7 @@ const Process = () => {
           <div className="absolute left-8 md:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
           
           {/* Steps */}
-          <div className="space-y-32 md:space-y-40">
+          <div className="space-y-48 md:space-y-56">
             {processSteps.map((step, index) => {
             const isVisible = activeStep === index;
             const StepComponent = step.component;
@@ -301,6 +301,12 @@ const Process = () => {
                     {/* Demo Component */}
                     <div className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-50 translate-x-8 scale-95'}`}>
                       <div className="relative">
+                        {/* Animated gradient border for active step */}
+                        {isVisible && (
+                          <div className="absolute -inset-1 rounded-2xl opacity-75 blur-sm">
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-2xl animate-gradient-border"></div>
+                          </div>
+                        )}
                         <div className={`absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-2xl blur-xl transition-opacity duration-500 ${isVisible ? 'opacity-100' : 'opacity-0'}`}></div>
                         <div className="relative">
                           <StepComponent isActive={isVisible} />
