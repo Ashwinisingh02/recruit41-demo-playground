@@ -63,7 +63,7 @@ const Hero = () => {
         {/* Product demo image */}
         <div className="relative mt-16 animate-scale-in">
           <div className="glass rounded-2xl shadow-[var(--shadow-elegant)] p-3 max-w-4xl mx-auto">
-            <img src={dashboardPreview} alt="Recruit41 AI hiring dashboard interface showing candidate profiles and interview scheduling" className="w-full h-auto rounded-lg" />
+            <img src="/lovable-uploads/e55c88ae-596b-405c-af8e-4ca2937d2019.png" alt="Recruit41 AI interviewer platform showing candidate assessment with skill visualization, proctoring analysis, and real-time evaluation dashboard" className="w-full h-auto rounded-lg" />
           </div>
         </div>
       </div>
