@@ -8,7 +8,7 @@ const Navbar = () => {
       <nav className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/48fb6046-d732-42e2-89d5-b6eda404ff2c.png" 
+            src="/lovable-uploads/54974109-dd05-4705-9f49-121e10853c08.png" 
             alt="Recruit41 logo" 
             className="h-10 w-auto object-contain"
           />
