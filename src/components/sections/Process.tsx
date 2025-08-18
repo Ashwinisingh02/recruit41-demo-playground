@@ -9,155 +9,13 @@ const InterviewCreationDemo = ({
   isActive: boolean;
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
-  const steps = [{
-    icon: <Upload className="w-6 h-6 text-primary" />,
-    text: "Uploading job description...",
-    subtext: "SDE-1 Position.pdf"
-  }, {
-    icon: <Zap className="w-6 h-6 text-primary animate-pulse" />,
-    text: "AI analyzing requirements...",
-    subtext: "Extracting key skills and requirements"
-  }, {
-    icon: <FileText className="w-6 h-6 text-primary" />,
-    text: "Generating interview for SDE-1",
-    subtext: "Creating customized technical questions"
-  }, {
-    icon: <CheckCircle className="w-6 h-6 text-green-500" />,
-    text: "Interview template created!",
-    subtext: "Ready to schedule candidates"
-  }];
-  useEffect(() => {
-    if (!isActive) {
-      setCurrentStep(0);
-      return;
-    }
-    const interval = setInterval(() => {
-      setCurrentStep(prev => (prev + 1) % steps.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [isActive]);
-  return <Card className="glass hover-scale max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-foreground">
-          {steps[currentStep].icon}
-          {steps[currentStep].text}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground text-sm mb-4">{steps[currentStep].subtext}</p>
-        {currentStep === 3 && <div className="space-y-2">
-            <div className="flex items-center justify-between p-2 bg-muted rounded text-sm">
-              <span>JavaScript & React</span>
-              <span className="text-primary">15 min</span>
-            </div>
-            <div className="flex items-center justify-between p-2 bg-muted rounded text-sm">
-              <span>Problem Solving</span>
-              <span className="text-primary">20 min</span>
-            </div>
-            <div className="flex items-center justify-between p-2 bg-muted rounded text-sm">
-              <span>System Design</span>
-              <span className="text-primary">25 min</span>
-            </div>
-          </div>}
-      </CardContent>
-    </Card>;
-};
+  const steps = [
+    { text: "Upload JD", completed: false, current: false },
+    { text: "AI Analysis", completed: false, current: false },
+    { text: "Generate Template", completed: false, current: false },
+    { text: "Ready to Schedule", completed: false, current: false }
+  ];
 
-// Automated demo component for step 2
-const SchedulingDemo = ({
-  isActive
-}: {
-  isActive: boolean;
-}) => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const steps = [{
-    icon: <Upload className="w-6 h-6 text-primary" />,
-    text: "Uploading candidates.csv...",
-    subtext: "Loading candidate database"
-  }, {
-    icon: <Users className="w-6 h-6 text-primary animate-pulse" />,
-    text: "Selecting qualified candidates",
-    subtext: "3 candidates match criteria"
-  }, {
-    icon: <Calendar className="w-6 h-6 text-primary" />,
-    text: "Sending interview invites...",
-    subtext: "Email invitations in progress"
-  }, {
-    icon: <CheckCircle className="w-6 h-6 text-green-500" />,
-    text: "Invitations sent successfully!",
-    subtext: "Waiting for candidate responses"
-  }];
-  useEffect(() => {
-    if (!isActive) {
-      setCurrentStep(0);
-      return;
-    }
-    const interval = setInterval(() => {
-      setCurrentStep(prev => (prev + 1) % steps.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, [isActive]);
-  return <Card className="glass hover-scale max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2 text-foreground">
-          {steps[currentStep].icon}
-          {steps[currentStep].text}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground text-sm mb-4">{steps[currentStep].subtext}</p>
-        {currentStep === 1 && <div className="space-y-2">
-            <div className="flex items-center justify-between p-2 bg-primary/10 rounded text-sm border border-primary/20">
-              <span className="text-foreground">Alex Johnson</span>
-              <span className="text-primary">Selected</span>
-            </div>
-            <div className="flex items-center justify-between p-2 bg-primary/10 rounded text-sm border border-primary/20">
-              <span className="text-foreground">Sarah Chen</span>
-              <span className="text-primary">Selected</span>
-            </div>
-            <div className="flex items-center justify-between p-2 bg-muted rounded text-sm">
-              <span className="text-foreground">Mike Wilson</span>
-              <span className="text-muted-foreground">Not qualified</span>
-            </div>
-          </div>}
-        {currentStep === 3 && <div className="space-y-2">
-            <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-950 rounded text-sm">
-              <span className="text-foreground">Alex Johnson</span>
-              <span className="text-green-600 dark:text-green-400">Sent ✓</span>
-            </div>
-            <div className="flex items-center justify-between p-2 bg-green-50 dark:bg-green-950 rounded text-sm">
-              <span className="text-foreground">Sarah Chen</span>
-              <span className="text-green-600 dark:text-green-400">Sent ✓</span>
-            </div>
-          </div>}
-      </CardContent>
-    </Card>;
-};
-
-// Automated demo component for step 3
-const InsightsDemo = ({
-  isActive
-}: {
-  isActive: boolean;
-}) => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const steps = [{
-    name: "Processing interviews...",
-    score: 0,
-    progress: 0
-  }, {
-    name: "Analyzing responses...",
-    score: 6.5,
-    progress: 45
-  }, {
-    name: "Generating insights...",
-    score: 8.2,
-    progress: 78
-  }, {
-    name: "Alex Johnson",
-    score: 8.5,
-    progress: 85
-  }];
   useEffect(() => {
     if (!isActive) {
       setCurrentStep(0);
@@ -168,52 +26,242 @@ const InsightsDemo = ({
     }, 2000);
     return () => clearInterval(interval);
   }, [isActive]);
-  const currentData = steps[currentStep];
-  return <Card className="glass hover-scale max-w-md mx-auto">
+
+  const progressSteps = steps.map((step, index) => ({
+    ...step,
+    completed: index < currentStep,
+    current: index === currentStep
+  }));
+
+  return (
+    <Card className="glass hover-scale max-w-md mx-auto">
       <CardHeader>
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-foreground flex items-center gap-2">
-            <BarChart3 className="w-5 h-5 text-primary" />
-            {currentData.name}
-          </CardTitle>
-          {currentStep === 3 && <div className="flex items-center gap-1">
-              <span className="text-2xl font-bold text-primary">{currentData.score}</span>
-              <div className="flex">
-                {[1, 2, 3, 4, 5].map(star => <div key={star} className={`w-4 h-4 ${star <= 4 ? 'text-primary' : 'text-muted'}`}>★</div>)}
-              </div>
-            </div>}
-        </div>
-        <div className="w-full bg-muted rounded-full h-2">
-          <div className="bg-primary h-2 rounded-full transition-all duration-500" style={{
-          width: `${currentData.progress}%`
-        }}></div>
-        </div>
+        <CardTitle className="flex items-center gap-2 text-foreground">
+          <Upload className="w-6 h-6 text-primary" />
+          Creating Interview Template
+        </CardTitle>
       </CardHeader>
-      
-      <CardContent className="space-y-4">
-        {currentStep === 3 ? <>
-            <div className="bg-muted p-4 rounded">
-              <h4 className="font-medium text-foreground mb-2">AI Summary</h4>
-              <p className="text-sm text-muted-foreground">Strong technical foundation with solid React knowledge. Excellent problem-solving approach and communication skills.</p>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-primary/10 p-3 rounded">
-                <div className="text-sm font-medium text-primary">Risk Assessment</div>
-                <div className="text-xs text-primary/80">Low Risk</div>
+      <CardContent>
+        <div className="space-y-4">
+          {/* Progress Bar */}
+          <div className="flex items-center gap-2">
+            {progressSteps.map((step, index) => (
+              <div key={index} className="flex items-center flex-1">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${
+                  step.completed 
+                    ? 'bg-green-500 text-white' 
+                    : step.current 
+                    ? 'bg-primary text-primary-foreground animate-pulse' 
+                    : 'bg-muted text-muted-foreground'
+                }`}>
+                  {step.completed ? '✓' : index + 1}
+                </div>
+                {index < progressSteps.length - 1 && (
+                  <div className={`flex-1 h-1 mx-2 rounded transition-all duration-500 ${
+                    step.completed ? 'bg-green-500' : 'bg-muted'
+                  }`}></div>
+                )}
               </div>
-              <div className="bg-accent/20 p-3 rounded">
-                <div className="text-sm font-medium text-accent-foreground">Technical Skills</div>
-                <div className="text-xs text-muted-foreground">Excellent</div>
+            ))}
+          </div>
+          
+          {/* Step Labels */}
+          <div className="grid grid-cols-4 gap-2 text-xs">
+            {progressSteps.map((step, index) => (
+              <div key={index} className={`text-center transition-colors duration-500 ${
+                step.completed 
+                  ? 'text-green-600 dark:text-green-400' 
+                  : step.current 
+                  ? 'text-primary font-medium' 
+                  : 'text-muted-foreground'
+              }`}>
+                {step.text}
               </div>
-            </div>
-          </> : <div className="text-center py-8">
-            <div className="animate-pulse text-muted-foreground">
-              AI analyzing candidate performance...
-            </div>
-          </div>}
+            ))}
+          </div>
+        </div>
       </CardContent>
-    </Card>;
+    </Card>
+  );
+};
+
+// Automated demo component for step 2
+const SchedulingDemo = ({
+  isActive
+}: {
+  isActive: boolean;
+}) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const steps = [
+    { text: "Upload Candidates", completed: false, current: false },
+    { text: "Filter & Qualify", completed: false, current: false },
+    { text: "Send Invites", completed: false, current: false },
+    { text: "Schedule Interviews", completed: false, current: false }
+  ];
+
+  useEffect(() => {
+    if (!isActive) {
+      setCurrentStep(0);
+      return;
+    }
+    const interval = setInterval(() => {
+      setCurrentStep(prev => (prev + 1) % steps.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isActive]);
+
+  const progressSteps = steps.map((step, index) => ({
+    ...step,
+    completed: index < currentStep,
+    current: index === currentStep
+  }));
+
+  return (
+    <Card className="glass hover-scale max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-foreground">
+          <Users className="w-6 h-6 text-primary" />
+          Scheduling Candidates
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {/* Progress Bar */}
+          <div className="flex items-center gap-2">
+            {progressSteps.map((step, index) => (
+              <div key={index} className="flex items-center flex-1">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${
+                  step.completed 
+                    ? 'bg-green-500 text-white' 
+                    : step.current 
+                    ? 'bg-primary text-primary-foreground animate-pulse' 
+                    : 'bg-muted text-muted-foreground'
+                }`}>
+                  {step.completed ? '✓' : index + 1}
+                </div>
+                {index < progressSteps.length - 1 && (
+                  <div className={`flex-1 h-1 mx-2 rounded transition-all duration-500 ${
+                    step.completed ? 'bg-green-500' : 'bg-muted'
+                  }`}></div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* Step Labels */}
+          <div className="grid grid-cols-4 gap-2 text-xs">
+            {progressSteps.map((step, index) => (
+              <div key={index} className={`text-center transition-colors duration-500 ${
+                step.completed 
+                  ? 'text-green-600 dark:text-green-400' 
+                  : step.current 
+                  ? 'text-primary font-medium' 
+                  : 'text-muted-foreground'
+              }`}>
+                {step.text}
+              </div>
+            ))}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+// Automated demo component for step 3
+const InsightsDemo = ({
+  isActive
+}: {
+  isActive: boolean;
+}) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const steps = [
+    { text: "Process Interviews", completed: false, current: false },
+    { text: "Analyze Responses", completed: false, current: false },
+    { text: "Generate Insights", completed: false, current: false },
+    { text: "Final Report", completed: false, current: false }
+  ];
+
+  useEffect(() => {
+    if (!isActive) {
+      setCurrentStep(0);
+      return;
+    }
+    const interval = setInterval(() => {
+      setCurrentStep(prev => (prev + 1) % steps.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [isActive]);
+
+  const progressSteps = steps.map((step, index) => ({
+    ...step,
+    completed: index < currentStep,
+    current: index === currentStep
+  }));
+
+  return (
+    <Card className="glass hover-scale max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-foreground">
+          <BarChart3 className="w-6 h-6 text-primary" />
+          AI-Powered Analysis
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-4">
+          {/* Progress Bar */}
+          <div className="flex items-center gap-2">
+            {progressSteps.map((step, index) => (
+              <div key={index} className="flex items-center flex-1">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium transition-all duration-500 ${
+                  step.completed 
+                    ? 'bg-green-500 text-white' 
+                    : step.current 
+                    ? 'bg-primary text-primary-foreground animate-pulse' 
+                    : 'bg-muted text-muted-foreground'
+                }`}>
+                  {step.completed ? '✓' : index + 1}
+                </div>
+                {index < progressSteps.length - 1 && (
+                  <div className={`flex-1 h-1 mx-2 rounded transition-all duration-500 ${
+                    step.completed ? 'bg-green-500' : 'bg-muted'
+                  }`}></div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          {/* Step Labels */}
+          <div className="grid grid-cols-4 gap-2 text-xs">
+            {progressSteps.map((step, index) => (
+              <div key={index} className={`text-center transition-colors duration-500 ${
+                step.completed 
+                  ? 'text-green-600 dark:text-green-400' 
+                  : step.current 
+                  ? 'text-primary font-medium' 
+                  : 'text-muted-foreground'
+              }`}>
+                {step.text}
+              </div>
+            ))}
+          </div>
+          
+          {/* Results Preview */}
+          {currentStep === 3 && (
+            <div className="mt-4 p-3 bg-green-50 dark:bg-green-950 rounded border border-green-200 dark:border-green-800">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-sm font-medium text-green-800 dark:text-green-200">Alex Johnson</span>
+                <span className="text-lg font-bold text-green-600 dark:text-green-400">8.5/10</span>
+              </div>
+              <p className="text-xs text-green-700 dark:text-green-300">
+                Strong technical skills • Low risk • Recommended
+              </p>
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
 };
 
 const processSteps = [{
