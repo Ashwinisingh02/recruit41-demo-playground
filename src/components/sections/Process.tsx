@@ -1,35 +1,111 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Upload, Brain, Video, BarChart3, ArrowRight, Check } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 const processSteps = [
   {
-    number: "01",
-    title: "Upload Job Requirements",
-    description: "Define your role requirements and let our AI understand your needs",
-    icon: Upload,
-    features: ["Custom job templates", "Skill mapping", "Role-specific criteria"]
+    number: "1",
+    title: "Create & Customize Your Interview",
+    description: "Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.",
+    mockup: (
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 max-w-md">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="font-semibold text-gray-900 dark:text-white">Frontend Developer Interview</h3>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Active</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Duration: 60 min</span>
+          </div>
+        </div>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded">
+            <span className="text-gray-700 dark:text-gray-300">JavaScript Fundamentals</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">15 min</span>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded">
+            <span className="text-gray-700 dark:text-gray-300">React Components</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">20 min</span>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded">
+            <span className="text-gray-700 dark:text-gray-300">API Integration</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">15 min</span>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
-    number: "02", 
-    title: "AI-Powered Screening",
-    description: "Our intelligent agents automatically screen and rank candidates",
-    icon: Brain,
-    features: ["Resume analysis", "Skill assessment", "Cultural fit evaluation"]
+    number: "2",
+    title: "Invite Candidates & Schedule",
+    description: "Seamlessly invite candidates to your custom technical assessments. Our scheduling system integrates with your calendar and sends automated reminders to ensure candidates are prepared and on time.",
+    mockup: (
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 max-w-md">
+        <div className="mb-4">
+          <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Candidate Scheduling</h3>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span className="text-sm text-gray-500 dark:text-gray-400">Available</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400">4 Slots Today</span>
+          </div>
+        </div>
+        <div className="space-y-3">
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded">
+            <span className="text-gray-700 dark:text-gray-300">10:00 AM - 11:00 AM</span>
+            <span className="text-sm text-blue-500">Available</span>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded">
+            <span className="text-gray-700 dark:text-gray-300">1:30 PM - 2:30 PM</span>
+            <span className="text-sm text-blue-500">Available</span>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded">
+            <span className="text-gray-700 dark:text-gray-300">4:00 PM - 5:00 PM</span>
+            <span className="text-sm text-orange-500">Booked</span>
+          </div>
+        </div>
+      </div>
+    )
   },
   {
-    number: "03",
-    title: "Automated Interviews", 
-    description: "Conduct consistent, unbiased interviews at scale",
-    icon: Video,
-    features: ["Video interviews", "Technical assessments", "Behavioral analysis"]
-  },
-  {
-    number: "04",
-    title: "Intelligent Insights",
-    description: "Get comprehensive reports and recommendations", 
-    icon: BarChart3,
-    features: ["Detailed analytics", "Hiring recommendations", "Performance predictions"]
+    number: "3",
+    title: "Review AI-Powered Insights",
+    description: "Our AI analyzes candidate performance across multiple dimensions, providing objective scoring and detailed insights. Compare candidates side-by-side and make data-driven hiring decisions with confidence.",
+    mockup: (
+      <div className="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 max-w-md">
+        <div className="mb-4">
+          <div className="flex items-center justify-between mb-2">
+            <h3 className="font-semibold text-gray-900 dark:text-white">Alex Johnson</h3>
+            <div className="flex items-center gap-1">
+              <span className="text-2xl font-bold text-orange-500">2.9</span>
+              <div className="flex">
+                {[1,2,3,4,5].map((star) => (
+                  <div key={star} className={`w-4 h-4 ${star <= 3 ? 'text-orange-500' : 'text-gray-300'}`}>★</div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-4">
+            <div className="bg-orange-500 h-2 rounded-full" style={{width: '58%'}}></div>
+          </div>
+        </div>
+        
+        <div className="space-y-4">
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded">
+            <h4 className="font-medium text-gray-900 dark:text-white mb-2">AI Summary</h4>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Strong technical foundation with solid React knowledge. Excellent problem-solving approach and communication skills.</p>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
+              <div className="text-sm font-medium text-blue-700 dark:text-blue-400">Risk Assessment</div>
+              <div className="text-xs text-blue-600 dark:text-blue-500">Low Risk</div>
+            </div>
+            <div className="bg-green-50 dark:bg-green-900/20 p-3 rounded">
+              <div className="text-sm font-medium text-green-700 dark:text-green-400">Technical Skills</div>
+              <div className="text-xs text-green-600 dark:text-green-500">Above Average</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 ];
 
@@ -64,91 +140,60 @@ const Process = () => {
   }, []);
 
   return (
-    <section className="relative py-16 md:py-24 overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-white dark:from-orange-950/20 dark:to-background" />
-      
-      {/* Floating blur elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-orange-400/20 dark:bg-orange-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl" />
-      
-      <div className="container relative mx-auto">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-display">
-            Streamlined Hiring Process
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            From job posting to final decision, our AI agents work together to deliver exceptional hiring outcomes
-          </p>
-        </div>
-
-        {/* Process Steps Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {processSteps.map((step, index) => {
-            const Icon = step.icon;
-            const isVisible = visibleSteps[index];
-            
-            return (
-              <div
-                key={step.number}
-                ref={el => stepRefs.current[index] = el}
-                className={`transform transition-all duration-700 ${
-                  isVisible 
-                    ? 'translate-y-0 opacity-100' 
-                    : 'translate-y-8 opacity-0'
-                }`}
-                style={{ 
-                  transitionDelay: `${index * 150}ms` 
-                }}
-              >
-                <Card className="glass group hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-300 border-white/20 dark:border-white/10">
-                  <CardHeader className="space-y-4">
-                    <div className="flex items-center gap-4">
-                      {/* Step number with gradient */}
-                      <div className="relative">
-                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-orange-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                          {step.number}
-                        </div>
-                        {index < processSteps.length - 1 && (
-                          <ArrowRight className="absolute -right-8 top-1/2 -translate-y-1/2 text-primary/60 hidden lg:block" size={20} />
-                        )}
-                      </div>
-                      
-                      {/* Icon */}
-                      <div className="w-12 h-12 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center">
-                        <Icon className="text-primary" size={24} />
-                      </div>
+    <section className="py-16 md:py-24 bg-gray-50 dark:bg-gray-900/50">
+      <div className="container mx-auto px-4">
+        {processSteps.map((step, index) => {
+          const isVisible = visibleSteps[index];
+          const isEven = index % 2 === 0;
+          
+          return (
+            <div
+              key={step.number}
+              ref={el => stepRefs.current[index] = el}
+              className={`mb-24 last:mb-0 transform transition-all duration-700 ${
+                isVisible 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-8 opacity-0'
+              }`}
+              style={{ 
+                transitionDelay: `${index * 200}ms` 
+              }}
+            >
+              <div className={`grid lg:grid-cols-2 gap-12 items-center ${
+                isEven ? '' : 'lg:grid-flow-col-dense'
+              }`}>
+                {/* Content */}
+                <div className={`${isEven ? '' : 'lg:order-2'}`}>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                      {step.number}
                     </div>
-                    
-                    <CardTitle className="text-xl md:text-2xl">{step.title}</CardTitle>
-                  </CardHeader>
+                  </div>
                   
-                  <CardContent className="space-y-6">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                    
-                    {/* Features list */}
-                    <ul className="space-y-3">
-                      {step.features.map((feature, featureIndex) => (
-                        <li 
-                          key={featureIndex}
-                          className="flex items-center gap-3 text-sm"
-                        >
-                          <div className="w-5 h-5 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0">
-                            <Check className="text-green-600 dark:text-green-400" size={12} />
-                          </div>
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                  <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                    {step.title}
+                  </h3>
+                  
+                  <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                    {step.description}
+                  </p>
+                  
+                  <button className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-600 font-medium transition-colors group">
+                    Learn more 
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </button>
+                </div>
+                
+                {/* Mockup */}
+                <div className={`${isEven ? '' : 'lg:order-1'} flex justify-center`}>
+                  <div className="transform hover:scale-105 transition-transform duration-300">
+                    {step.mockup}
+                  </div>
+                </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
