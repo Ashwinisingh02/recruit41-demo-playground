@@ -45,13 +45,13 @@ const Home = () => {
 
       <SocialProof />
 
+      <Process />
+
       <Features />
 
       <InterviewStyles />
 
       <JobTypes />
-
-      <Process />
 
       <Pricing />
 
