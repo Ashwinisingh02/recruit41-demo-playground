@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
+        <a href="#hero" className="flex items-center gap-2">
           <img 
             src={resolvedTheme === 'dark' 
               ? "/lovable-uploads/267730ba-d6ac-4bfa-bc64-dc7541608907.png"
@@ -18,7 +18,7 @@ const Navbar = () => {
             alt="Recruit41 logo" 
             className="h-12 w-auto object-contain"
           />
-        </Link>
+        </a>
         <div className="hidden md:flex items-center gap-6">
           <a href="#process" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Process</a>
           <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Features</a>

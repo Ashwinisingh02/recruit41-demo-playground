@@ -15,7 +15,7 @@ const Hero = () => {
   }, []);
   const parallaxA = `translateY(${offset * 0.15}px)`;
   const parallaxB = `translateY(${offset * 0.25}px)`;
-  return <section className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32">
+  return <section id="hero" className="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32">
       {/* Background gradient + glows */}
       <div className="absolute inset-0 -z-10 hero-gradient" aria-hidden="true" />
       <div className="pointer-events-none absolute -top-20 -left-24 h-[42rem] w-[42rem] rounded-full blur-3xl transition-transform duration-100 ease-out" style={{
