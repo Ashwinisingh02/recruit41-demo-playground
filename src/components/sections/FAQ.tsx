@@ -50,28 +50,28 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-background">
+    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2 sm:px-0">
             Everything you need to know about Recruit41 and how it can transform your hiring process.
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full space-y-4">
+        <Accordion type="single" collapsible className="w-full space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="glass rounded-lg border-border/50 px-6 transition-all duration-300 hover:shadow-lg"
+              className="glass rounded-lg border-border/50 px-4 sm:px-6 transition-all duration-300 hover:shadow-lg"
             >
-              <AccordionTrigger className="text-left text-lg font-semibold hover:no-underline py-6">
+              <AccordionTrigger className="text-left text-base sm:text-lg font-semibold hover:no-underline py-4 sm:py-6">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+              <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pb-4 sm:pb-6">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

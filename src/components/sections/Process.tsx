@@ -251,13 +251,13 @@ const Process = () => {
     });
     return () => observer.disconnect();
   }, [activeStep]);
-  return <section id="process" className="py-16 md:py-24 min-h-screen bg-gradient-subtle relative">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display text-foreground">
+  return <section id="process" className="py-12 sm:py-16 md:py-24 min-h-screen bg-gradient-subtle relative">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 font-display text-foreground">
             How Recruit41 Works
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-base sm:text-lg text-muted-foreground px-2 sm:px-0">
             Streamline your hiring process with our intelligent three-step approach that saves time and improves candidate quality.
           </p>
         </div>
@@ -265,43 +265,43 @@ const Process = () => {
         {/* Vertical Timeline */}
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-8 md:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
+          <div className="absolute left-6 sm:left-8 md:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
           
           {/* Steps */}
-          <div className="space-y-48 md:space-y-56">
+          <div className="space-y-32 sm:space-y-40 md:space-y-48 lg:space-y-56">
             {processSteps.map((step, index) => {
             const isVisible = activeStep === index;
             const StepComponent = step.component;
             const IconComponent = step.icon;
             return <div key={index} ref={el => stepRefs.current[index] = el} data-step={index} className={`relative transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-30 translate-y-12'}`}>
                   {/* Step Icon */}
-                  <div className={`absolute left-4 md:left-12 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${isVisible ? 'bg-primary border-primary scale-110' : 'bg-background border-muted scale-100'}`}>
-                    <IconComponent className={`w-4 h-4 transition-colors duration-500 ${isVisible ? 'text-primary-foreground' : 'text-muted-foreground'}`} />
+                  <div className={`absolute left-2 sm:left-4 md:left-12 w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center transition-all duration-500 ${isVisible ? 'bg-primary border-primary scale-110' : 'bg-background border-muted scale-100'}`}>
+                    <IconComponent className={`w-3 h-3 sm:w-4 sm:h-4 transition-colors duration-500 ${isVisible ? 'text-primary-foreground' : 'text-muted-foreground'}`} />
                   </div>
                   
                   {/* Content */}
-                  <div className="ml-20 md:ml-32 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                  <div className="ml-12 sm:ml-16 md:ml-20 lg:ml-32 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
                     {/* Text Content */}
-                    <div className={`space-y-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-50 translate-x-8'}`}>
-                      <div className="flex items-center gap-3">
-                        <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                    <div className={`space-y-3 sm:space-y-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-50 translate-x-8'}`}>
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="text-xs sm:text-sm font-medium text-primary bg-primary/10 px-2 sm:px-3 py-1 rounded-full">
                           STEP - {step.number}
                         </span>
                       </div>
                       
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
+                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground leading-tight">
                         {step.title}
                       </h3>
                       
-                      <p className="text-lg text-muted-foreground leading-relaxed">
+                      <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed">
                         {step.description}
                       </p>
                     </div>
                     
                     {/* Demo Component */}
-                    <div className={`transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-50 translate-x-8 scale-95'}`}>
+                    <div className={`transition-all duration-700 delay-500 mt-6 md:mt-0 ${isVisible ? 'opacity-100 translate-x-0 scale-100' : 'opacity-50 translate-x-8 scale-95'}`}>
                       <div className="relative">
-                        <div className={`absolute -inset-4 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-xl transition-opacity duration-700 ${isVisible ? 'opacity-100 animate-glow-pulse' : 'opacity-0'}`}></div>
+                        <div className={`absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-primary/30 to-accent/30 rounded-xl sm:rounded-2xl blur-xl transition-opacity duration-700 ${isVisible ? 'opacity-100 animate-glow-pulse' : 'opacity-0'}`}></div>
                         <div className="relative">
                           <StepComponent isActive={isVisible} />
                         </div>
