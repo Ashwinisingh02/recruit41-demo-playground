@@ -10,14 +10,13 @@ const InterviewCreationDemo = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [completingStep, setCompletingStep] = useState<number | null>(null);
-  
   const steps = [{
     text: "Upload JD",
     completed: false,
     current: false,
     completing: false
   }, {
-    text: "AI Analysis", 
+    text: "AI Analysis",
     completed: false,
     current: false,
     completing: false
@@ -38,24 +37,20 @@ const InterviewCreationDemo = ({
       setCompletingStep(null);
       return;
     }
-    
     const interval = setInterval(() => {
       setCurrentStep(prev => {
         // Mark current step as completing before moving to next
         setCompletingStep(prev);
-        
+
         // After short delay, clear completing and move to next step
         setTimeout(() => {
           setCompletingStep(null);
         }, 800);
-        
         return (prev + 1) % steps.length;
       });
     }, 2000);
-    
     return () => clearInterval(interval);
   }, [isActive]);
-  
   const progressSteps = steps.map((step, index) => ({
     ...step,
     completed: index < currentStep && index !== completingStep,
@@ -71,12 +66,7 @@ const InterviewCreationDemo = ({
           {/* Progress Bar */}
           <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`transition-all duration-500 flex items-center justify-center text-xs font-medium ${
-                  step.completed ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white' : 
-                  step.completing ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white animate-scale-in' :
-                  step.current ? 'px-2 py-1 sm:px-3 sm:py-1 rounded-lg bg-primary text-primary-foreground animate-pulse' : 
-                  'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted text-muted-foreground'
-                }`}>
+                <div className={`transition-all duration-500 flex items-center justify-center text-xs font-medium ${step.completed ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white' : step.completing ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white animate-scale-in' : step.current ? 'px-2 py-1 sm:px-3 sm:py-1 rounded-lg bg-primary text-primary-foreground animate-pulse' : 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted text-muted-foreground'}`}>
                   {step.completed || step.completing ? '✓' : step.current ? ['Upload JD', 'AI Analysis', 'Generate Template', 'Ready to Schedule'][index] : index + 1}
                 </div>
                 {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
@@ -85,9 +75,7 @@ const InterviewCreationDemo = ({
           
           {/* Step Labels */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-xs sm:text-sm">
-            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 leading-tight ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
-                {step.text}
-              </div>)}
+            {progressSteps.map((step, index) => {})}
           </div>
         </div>
       </CardContent>
@@ -102,7 +90,6 @@ const SchedulingDemo = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [completingStep, setCompletingStep] = useState<number | null>(null);
-  
   const steps = [{
     text: "Upload Candidates",
     completed: false,
@@ -130,7 +117,6 @@ const SchedulingDemo = ({
       setCompletingStep(null);
       return;
     }
-    
     const interval = setInterval(() => {
       setCurrentStep(prev => {
         setCompletingStep(prev);
@@ -140,10 +126,8 @@ const SchedulingDemo = ({
         return (prev + 1) % steps.length;
       });
     }, 2000);
-    
     return () => clearInterval(interval);
   }, [isActive]);
-  
   const progressSteps = steps.map((step, index) => ({
     ...step,
     completed: index < currentStep && index !== completingStep,
@@ -159,12 +143,7 @@ const SchedulingDemo = ({
           {/* Progress Bar */}
           <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`transition-all duration-500 flex items-center justify-center text-xs font-medium ${
-                  step.completed ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white' : 
-                  step.completing ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white animate-scale-in' :
-                  step.current ? 'px-2 py-1 sm:px-3 sm:py-1 rounded-lg bg-primary text-primary-foreground animate-pulse' : 
-                  'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted text-muted-foreground'
-                }`}>
+                <div className={`transition-all duration-500 flex items-center justify-center text-xs font-medium ${step.completed ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white' : step.completing ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white animate-scale-in' : step.current ? 'px-2 py-1 sm:px-3 sm:py-1 rounded-lg bg-primary text-primary-foreground animate-pulse' : 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted text-muted-foreground'}`}>
                   {step.completed || step.completing ? '✓' : step.current ? ['Upload Candidates', 'Filter & Qualify', 'Send Invites', 'Schedule Interviews'][index] : index + 1}
                 </div>
                 {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
@@ -190,7 +169,6 @@ const InsightsDemo = ({
 }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [completingStep, setCompletingStep] = useState<number | null>(null);
-  
   const steps = [{
     text: "Process Interviews",
     completed: false,
@@ -218,7 +196,6 @@ const InsightsDemo = ({
       setCompletingStep(null);
       return;
     }
-    
     const interval = setInterval(() => {
       setCurrentStep(prev => {
         setCompletingStep(prev);
@@ -228,10 +205,8 @@ const InsightsDemo = ({
         return (prev + 1) % steps.length;
       });
     }, 2000);
-    
     return () => clearInterval(interval);
   }, [isActive]);
-  
   const progressSteps = steps.map((step, index) => ({
     ...step,
     completed: index < currentStep && index !== completingStep,
@@ -247,12 +222,7 @@ const InsightsDemo = ({
           {/* Progress Bar */}
           <div className="flex items-center gap-3">
             {progressSteps.map((step, index) => <div key={index} className="flex items-center flex-1">
-                <div className={`transition-all duration-500 flex items-center justify-center text-xs font-medium ${
-                  step.completed ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white' : 
-                  step.completing ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white animate-scale-in' :
-                  step.current ? 'px-2 py-1 sm:px-3 sm:py-1 rounded-lg bg-primary text-primary-foreground animate-pulse' : 
-                  'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted text-muted-foreground'
-                }`}>
+                <div className={`transition-all duration-500 flex items-center justify-center text-xs font-medium ${step.completed ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white' : step.completing ? 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-green-500 text-white animate-scale-in' : step.current ? 'px-2 py-1 sm:px-3 sm:py-1 rounded-lg bg-primary text-primary-foreground animate-pulse' : 'w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-muted text-muted-foreground'}`}>
                   {step.completed || step.completing ? '✓' : step.current ? ['Process Interviews', 'Analyze Responses', 'Generate Insights', 'Final Report'][index] : index + 1}
                 </div>
                 {index < progressSteps.length - 1 && <div className={`flex-1 h-1 mx-3 rounded transition-all duration-500 ${step.completed ? 'bg-green-500' : 'bg-muted'}`}></div>}
