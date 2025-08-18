@@ -212,18 +212,21 @@ const InsightsDemo = ({
 };
 const processSteps = [{
   number: "01",
+  shortName: "Create",
   title: "Create Interviews in Minutes",
   description: "Design comprehensive technical interview plans in minutes, not hours. Our platform offers pre-built templates for various roles and levels, with fully customizable questions and scoring criteria.",
   component: InterviewCreationDemo,
   icon: Upload
 }, {
   number: "02",
+  shortName: "Schedule",
   title: "Invite Candidates & Schedule",
   description: "Upload candidate database and automatically send interview invites to qualified applicants.",
   component: SchedulingDemo,
   icon: Users
 }, {
   number: "03",
+  shortName: "Review",
   title: "Review AI-Powered Insights",
   description: "Our AI analyzes candidate performance across multiple dimensions, providing objective scoring and detailed insights. Compare candidates side-by-side and make data-driven hiring decisions with confidence.",
   component: InsightsDemo,
@@ -285,7 +288,7 @@ const Process = () => {
                     <div className={`space-y-3 sm:space-y-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-50 translate-x-8'}`}>
                       <div className="flex items-center gap-2 sm:gap-3">
                         <span className="text-xs sm:text-sm font-medium text-primary bg-primary/10 px-2 sm:px-3 py-1 rounded-full">
-                          STEP - {step.number}
+                          STEP - {step.shortName.toUpperCase()}
                         </span>
                       </div>
                       
