@@ -54,16 +54,7 @@ const Pricing = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="rounded-2xl border p-8 glass">
-            <div className="grid md:grid-cols-3 gap-8 mb-8">
-              {plans.map((p) => (
-                <div key={p.name} className="text-center">
-                  <div className="mb-2 text-lg font-semibold text-foreground">{p.name}</div>
-                  <div className="text-muted-foreground text-sm">{p.subtitle}</div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="border-t pt-8">
+            <div>
               <h3 className="text-xl font-semibold mb-6 text-center">All Features Included</h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
