@@ -152,9 +152,7 @@ const SchedulingDemo = ({
           
           {/* Step Labels */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-xs sm:text-sm">
-            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 leading-tight ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
-                {step.text}
-              </div>)}
+            {progressSteps.map((step, index) => {})}
           </div>
         </div>
       </CardContent>
@@ -230,11 +228,7 @@ const InsightsDemo = ({
           </div>
           
           {/* Step Labels */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-xs sm:text-sm">
-            {progressSteps.map((step, index) => <div key={index} className={`text-center transition-colors duration-500 leading-tight ${step.completed ? 'text-green-600 dark:text-green-400' : step.current ? 'text-primary font-medium' : 'text-muted-foreground'}`}>
-                {step.text}
-              </div>)}
-          </div>
+          
           
           {/* Results Preview */}
           {currentStep === 3 && <div className="mt-6 p-4 bg-green-50 dark:bg-green-950 rounded-lg border border-green-200 dark:border-green-800">
