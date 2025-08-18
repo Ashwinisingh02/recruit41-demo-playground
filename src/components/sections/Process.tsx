@@ -27,7 +27,10 @@ const InterviewCreationDemo = ({
     subtext: "Ready to schedule candidates"
   }];
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive) {
+      setCurrentStep(0);
+      return;
+    }
     const interval = setInterval(() => {
       setCurrentStep(prev => (prev + 1) % steps.length);
     }, 2500);
@@ -85,7 +88,10 @@ const SchedulingDemo = ({
     subtext: "Waiting for candidate responses"
   }];
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive) {
+      setCurrentStep(0);
+      return;
+    }
     const interval = setInterval(() => {
       setCurrentStep(prev => (prev + 1) % steps.length);
     }, 2500);
@@ -153,7 +159,10 @@ const InsightsDemo = ({
     progress: 85
   }];
   useEffect(() => {
-    if (!isActive) return;
+    if (!isActive) {
+      setCurrentStep(0);
+      return;
+    }
     const interval = setInterval(() => {
       setCurrentStep(prev => (prev + 1) % steps.length);
     }, 2000);
