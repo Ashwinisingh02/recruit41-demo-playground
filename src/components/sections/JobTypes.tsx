@@ -8,7 +8,7 @@ const jobTypes = [
 // Row 4 - Marketing roles
 ["Growth Marketing Manager", "Lifecycle Marketing Manager", "Paid Ads Specialist (Google/Facebook)", "Email Marketing Manager", "Content Marketing Manager", "Performance Marketing Specialist", "SEO Specialist", "Brand Manager", "Social Media Manager", "Marketing Operations"]];
 const JobTypes = () => {
-  return <section id="interview-types" className="py-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
+  return <section id="job-types" className="py-20 bg-gradient-to-b from-background to-muted/20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
