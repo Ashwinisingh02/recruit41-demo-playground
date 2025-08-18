@@ -5,6 +5,7 @@ import Footer from "@/components/site/Footer";
 import Hero from "@/components/sections/Hero";
 import SocialProof from "@/components/sections/SocialProof";
 import Features from "@/components/sections/Features";
+import Process from "@/components/sections/Process";
 import Pricing from "@/components/sections/Pricing";
 import CTA from "@/components/sections/CTA";
 import FAQ from "@/components/sections/FAQ";
@@ -43,6 +44,8 @@ const Home = () => {
       <SocialProof />
 
       <Features />
+
+      <Process />
 
       <Pricing />
 
