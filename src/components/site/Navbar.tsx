@@ -12,7 +12,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-2">
           <img 
             src={resolvedTheme === 'dark' 
-              ? "/lovable-uploads/recruit41-dark-logo.png"
+              ? "/lovable-uploads/267730ba-d6ac-4bfa-bc64-dc7541608907.png"
               : "/lovable-uploads/54974109-dd05-4705-9f49-121e10853c08.png"
             }
             alt="Recruit41 logo" 
