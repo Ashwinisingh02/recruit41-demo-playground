@@ -36,12 +36,10 @@ const Pricing = () => {
             </div>
             
             <div className="text-center mt-8 pt-6 border-t">
-              <a 
-                href="mailto:contact@recruit41.com?subject=Pricing Inquiry" 
-                className="text-primary hover:text-primary/80 transition-colors text-lg font-medium"
-              >
-                contact@recruit41.com
-              </a>
+              <div className="flex items-center justify-center gap-2 text-lg font-medium">
+                <Mail className="w-5 h-5 text-primary" />
+                <span>contact@recruit41.com</span>
+              </div>
             </div>
           </div>
         </div>
