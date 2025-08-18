@@ -1,14 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "next-themes";
 import ModeToggle from "./ModeToggle";
 
 const Navbar = () => {
+  const { resolvedTheme } = useTheme();
+  
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <nav className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <img 
-            src="/lovable-uploads/54974109-dd05-4705-9f49-121e10853c08.png" 
+            src={resolvedTheme === 'dark' 
+              ? "/lovable-uploads/recruit41-dark-logo.png"
+              : "/lovable-uploads/54974109-dd05-4705-9f49-121e10853c08.png"
+            }
             alt="Recruit41 logo" 
             className="h-12 w-auto object-contain"
           />
