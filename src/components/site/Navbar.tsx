@@ -41,6 +41,7 @@ const Navbar = () => {
               <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Features</a>
               <a href="#interview-types" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Interview Types</a>
               <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">Pricing</a>
+              <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors scroll-smooth">FAQs</a>
             </>
           )}
           {!isOnDemoPage && (

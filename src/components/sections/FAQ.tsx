@@ -50,7 +50,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-background">
+    <section id="faq" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 bg-background">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent">
