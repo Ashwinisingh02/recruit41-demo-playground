@@ -73,7 +73,7 @@ const Hero = () => {
         <div className="relative mx-auto overflow-hidden rounded-2xl px-6 py-16 text-center shadow-[var(--shadow-glow)] technology-band">
           <ScrollHighlightText 
             text="Our intelligent system seamlessly coordinates interview slots, taking availability of both candidates and interviewers into account."
-            className="mx-auto max-w-4xl text-xl md:text-2xl font-medium"
+            className="mx-auto max-w-3xl text-2xl md:text-3xl lg:text-4xl font-medium"
           />
           {/* Demo button */}
           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2">
