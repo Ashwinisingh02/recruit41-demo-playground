@@ -258,51 +258,67 @@ const Process = () => {
           </p>
         </div>
         
-        {/* Slideshow Container */}
-        <div className="flex-1 flex items-center justify-center relative">
-          <div className="w-full max-w-6xl relative">
-            
-            {/* Navigation Arrows */}
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={goToPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background shadow-lg"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border-border/50 hover:bg-background shadow-lg"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-
-            {/* Main Content */}
-            <div className="px-16">
-              <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-elegant">
-                <div className="transform transition-all duration-700 animate-fade-in">
-                  {/* Demo Component - Full Screen */}
-                  <div className="flex justify-center mb-8">
+        {/* Carousel Container */}
+        <div className="flex-1 flex items-center justify-center relative overflow-hidden">
+          <div className="w-full max-w-7xl relative">
+            {/* Carousel Track */}
+            <div className="flex items-center justify-center relative h-[600px]">
+              {processSteps.map((step, index) => {
+                const StepComponent = step.component;
+                const isActive = index === activeStep;
+                const isPrev = index === (activeStep - 1 + processSteps.length) % processSteps.length;
+                const isNext = index === (activeStep + 1) % processSteps.length;
+                
+                let position = 'hidden';
+                let transform = 'translate-x-full';
+                let scale = 'scale-75';
+                let opacity = 'opacity-0';
+                
+                if (isActive) {
+                  position = 'flex';
+                  transform = 'translate-x-0';
+                  scale = 'scale-100';
+                  opacity = 'opacity-100';
+                } else if (isPrev) {
+                  position = 'flex';
+                  transform = '-translate-x-[80%]';
+                  scale = 'scale-75';
+                  opacity = 'opacity-50';
+                } else if (isNext) {
+                  position = 'flex';
+                  transform = 'translate-x-[80%]';
+                  scale = 'scale-75';
+                  opacity = 'opacity-50';
+                }
+                
+                return (
+                  <div
+                    key={index}
+                    className={`absolute inset-0 ${position} items-center justify-center transition-all duration-700 ease-in-out ${transform} ${scale} ${opacity}`}
+                  >
                     <div className="w-full max-w-2xl">
-                      <DemoComponent isActive={true} />
+                      <div className="bg-background/60 backdrop-blur-sm rounded-2xl p-8 border border-border/50 shadow-elegant">
+                        {/* Demo Component */}
+                        <div className="flex justify-center mb-8">
+                          <div className="w-full max-w-md">
+                            <StepComponent isActive={isActive} />
+                          </div>
+                        </div>
+                        
+                        <div className="text-center">
+                          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+                            {step.title}
+                          </h3>
+                          
+                          <p className="text-lg text-muted-foreground leading-relaxed max-w-xl mx-auto">
+                            {step.description}
+                          </p>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="text-center">
-                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-                      {currentStep.title}
-                    </h3>
-                    
-                    <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-                      {currentStep.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
