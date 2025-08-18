@@ -35,7 +35,7 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl font-bold tracking-tight font-display md:text-7xl lg:text-8xl">
-            The Future of Hiring is Here. 
+            The Future of Hiring? Already Here. 
             <span className="block mt-2">Cut Your Time-to-Hire in Half.</span>
           </h1>
           
