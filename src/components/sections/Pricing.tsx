@@ -26,7 +26,7 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto">
           <div className="rounded-2xl border p-8 glass">
             <div>
-              <h3 className="text-xl font-semibold mb-6 text-center">All Features Included</h3>
+              
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {["Resume screening", "Interview scheduling", "Virtual interviews", "AI score analytics", "Customizable assessments", "Comprehensive analytics", "Interview report insights", "Advanced integrations", "Dedicated support", "Enterprise security", "Customization options"].map(feature => <div key={feature} className="flex items-start gap-3">
                     <Check className="text-primary mt-0.5 w-4 h-4 flex-shrink-0" />
