@@ -35,9 +35,8 @@ const Hero = () => {
           </div>
           
           <h1 className="text-5xl font-bold tracking-tight font-display md:text-7xl lg:text-8xl">
-            Is your hiring team buried under 
-            <span className="block mt-2">applications?</span>
-            <span className="block mt-4 italic text-primary">No More</span>
+            The Future of Hiring is Here. 
+            <span className="block mt-2">Cut Your Time-to-Hire in Half.</span>
           </h1>
           
           <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
