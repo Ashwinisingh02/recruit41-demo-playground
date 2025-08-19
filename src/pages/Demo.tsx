@@ -64,17 +64,20 @@ const Demo = () => {
                 <CardTitle className="text-lg">{interview.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <div className="text-sm text-muted-foreground max-h-32 overflow-y-auto">
-                  {interview.description.split('\r\n').map((line, idx) => {
-                    if (line.startsWith('##')) {
-                      return <h3 key={idx} className="font-semibold text-foreground mt-2 mb-1">{line.replace('##', '').trim()}</h3>;
-                    }
-                    if (line.startsWith('*')) {
-                      return <li key={idx} className="ml-4 list-disc">{line.replace('*', '').trim()}</li>;
-                    }
-                    return line.trim() ? <p key={idx} className="mb-1">{line}</p> : null;
-                  })}
-                </div>
+                <p className="text-sm text-muted-foreground">
+                  {interview.title === "Coding Hands On" && "Fullstack development interview with React and FastAPI/Django focus"}
+                  {interview.title === "Amazon Deep Dive" && "Mock Amazon interview focusing on the 'deep dive' leadership principle"}
+                  {interview.title === "Screening" && "Quick 15-minute screening round for software engineering roles"}
+                  {interview.title === "Software Engineering Intern" && "45-minute resume and skills interview for freshers"}
+                  {interview.title === "System Design" && "Design performant and scalable software solutions"}
+                  {interview.title === "SDET 3-5 yrs" && "Automation testing with Selenium, Cypress, or Playwright"}
+                  {interview.title === "SDE - Coding Round" && "Coding assessment for fresher-level positions"}
+                  {interview.title === "Product Architect" && "Technical vision and high-level system design evaluation"}
+                  {interview.title === "Business Analyst" && "Translate business needs into clear requirements"}
+                  {interview.title === "HR Analyst" && "HR data analysis and people-centric insights"}
+                  {interview.title === "Financial Analyst" && "Financial modeling, forecasting, and variance analysis"}
+                  {interview.title === "SDE - Java" && "Java backend development with Spring Boot framework"}
+                </p>
                 <Button onClick={() => startDemo(i)} variant="hero" className="w-full">Try Interview</Button>
               </CardContent>
             </Card>
