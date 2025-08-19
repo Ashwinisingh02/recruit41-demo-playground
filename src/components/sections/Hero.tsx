@@ -67,7 +67,7 @@ const Hero = () => {
       {/* Dark technology band with rotating demo badge */}
       <div className="container mx-auto">
         <div className="relative mx-auto overflow-hidden rounded-2xl px-6 py-16 text-center shadow-[var(--shadow-glow)] technology-band">
-          <ScrollHighlightText text="Recruit41's AI proctoring spots cheating, monitors engagement, and ensures fairness, so you focus on hiring, not catching red flags." className="mx-auto max-w-3xl text-2xl md:text-3xl lg:text-4xl font-medium" />
+          <ScrollHighlightText text="Recruit41's AI proctoring spots cheating, monitors engagement, and ensures fairness, so you focus on hiring, not catching red flags." className="mx-auto max-w-2xl text-2xl md:text-3xl lg:text-4xl font-medium" />
           {/* Demo button */}
           <div className="absolute -bottom-10 left-1/2 -translate-x-1/2">
             <Link to="/demo">

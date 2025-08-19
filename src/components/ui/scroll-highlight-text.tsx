@@ -27,7 +27,7 @@ export const ScrollHighlightText = ({ text, className }: ScrollHighlightTextProp
       // Start highlighting when element enters viewport
       if (elementTop < windowHeight && elementTop + elementHeight > 0) {
         // Calculate progress from 0 to 1 based on scroll position
-        const progress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight + elementHeight)));
+        const progress = Math.max(0, Math.min(1, (windowHeight - elementTop) / (windowHeight * 0.6 + elementHeight)));
         
         // Determine how many words should be highlighted
         const wordsToHighlight = Math.floor(progress * words.length);
