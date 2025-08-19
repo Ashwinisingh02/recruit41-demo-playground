@@ -50,7 +50,7 @@ const Hero = () => {
                 Try AI Interview
               </Button>
             </Link>
-            <a href="#features">
+            <a href="https://forms.fillout.com/t/jyDioUXUGXus" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4">Let's Connect</Button>
             </a>
           </div>
