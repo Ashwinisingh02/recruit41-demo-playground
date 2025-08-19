@@ -1,8 +1,6 @@
 import { Linkedin, Mail } from "lucide-react";
-
 const Footer = () => {
-  return (
-    <footer className="bg-background border-t">
+  return <footer className="bg-background border-t">
       <div className="container mx-auto px-6 py-12">
         {/* Main footer content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -13,20 +11,10 @@ const Footer = () => {
               AI-powered hiring platform that automates resume screening and first-round interviews, delivering only the most qualified candidates.
             </p>
             <div className="flex items-center gap-3">
-              <a 
-                href="https://in.linkedin.com/company/recruit41" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Follow us on LinkedIn"
-              >
+              <a href="https://in.linkedin.com/company/recruit41" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow us on LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a 
-                href="mailto:contact@recruit41.com"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Contact us"
-              >
+              <a href="mailto:contact@recruit41.com" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Contact us">
                 <Mail size={20} />
               </a>
             </div>
@@ -49,7 +37,7 @@ const Footer = () => {
             <nav className="flex flex-col space-y-2">
               <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQs</a>
               <a href="mailto:contact@recruit41.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a>
-              <a href="mailto:support@recruit41.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Technical Support</a>
+              
             </nav>
           </div>
 
@@ -77,8 +65,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
