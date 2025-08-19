@@ -8,66 +8,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
+import demoInterviewsData from "@/data/demoInterviews.json";
 
-interface RoleDemo {
-  role: string;
+interface DemoInterview {
+  title: string;
   description: string;
-  difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
-  questions: string[];
+  redirect: string;
 }
 
-const ROLES: RoleDemo[] = [
-  {
-    role: 'Software Engineer',
-    description: 'Algorithms, systems design, and code reasoning.',
-    difficulty: 'Advanced',
-    questions: [
-      'Explain the time and space complexity trade-offs of using a trie vs a hash map.',
-      'Design a rate limiter for a distributed API.',
-      'Walk through debugging a flaky integration test in CI.'
-    ]
-  },
-  {
-    role: 'Data Scientist',
-    description: 'Experiment design, modeling, and metrics.',
-    difficulty: 'Intermediate',
-    questions: [
-      'How would you detect data leakage in a churn model?',
-      'Choose between A/B test and multi-armed bandit—when and why?',
-      'Explain SHAP values to a non-technical stakeholder.'
-    ]
-  },
-  {
-    role: 'Product Manager',
-    description: 'Discovery, prioritization, and execution.',
-    difficulty: 'Intermediate',
-    questions: [
-      'Define a success metric for a new onboarding flow.',
-      'Prioritize three competing roadmap items with constraints.',
-      'How would you validate a problem without building a feature?'
-    ]
-  },
-  {
-    role: 'Sales Associate',
-    description: 'Prospecting, discovery, and objection handling.',
-    difficulty: 'Beginner',
-    questions: [
-      'Run a discovery on a mid-market lead in fintech.',
-      'Handle a pricing objection when value is unclear.',
-      'Qualify a lead using MEDDICC or similar.'
-    ]
-  },
-  {
-    role: 'Customer Support',
-    description: 'Empathy, troubleshooting, and resolution.',
-    difficulty: 'Beginner',
-    questions: [
-      'Calm an upset customer while gathering logs.',
-      'Create a reproducible bug report from a vague ticket.',
-      'Suggest a process to reduce repeated issues.'
-    ]
-  }
-];
+const DEMO_INTERVIEWS: DemoInterview[] = demoInterviewsData;
 
 const Demo = () => {
   const location = useLocation();
@@ -78,9 +27,7 @@ const Demo = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [step, setStep] = useState(0);
 
-  const active = activeIndex !== null ? ROLES[activeIndex] : null;
-  const totalSteps = active?.questions.length ?? 0;
-  const progress = useMemo(() => totalSteps ? ((step + 1) / totalSteps) * 100 : 0, [step, totalSteps]);
+  const activeInterview = activeIndex !== null ? DEMO_INTERVIEWS[activeIndex] : null;
 
   const startDemo = (index: number) => {
     setActiveIndex(index);
@@ -88,14 +35,10 @@ const Demo = () => {
     setOpen(true);
   };
 
-  const handleRecord = () => {
-    toast({ title: 'Demo mode', description: 'Recording is simulated in this demo.' });
-  };
-
-  const next = () => {
-    if (!active) return;
-    if (step + 1 < active.questions.length) setStep(s => s + 1);
-    else setStep(s => s); // stay on last
+  const handleTryDemo = () => {
+    if (activeInterview?.redirect) {
+      window.open(activeInterview.redirect, '_blank');
+    }
   };
 
   return (
@@ -115,15 +58,24 @@ const Demo = () => {
         </header>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ROLES.map((r, i) => (
-            <Card key={r.role} className="hover-scale animate-fade-in">
+          {DEMO_INTERVIEWS.map((interview, i) => (
+            <Card key={interview.title} className="hover-scale animate-fade-in">
               <CardHeader>
-                <CardTitle className="text-lg">{r.role}</CardTitle>
+                <CardTitle className="text-lg">{interview.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <p className="text-sm text-muted-foreground">{r.description}</p>
-                <p className="text-xs text-muted-foreground">Difficulty: <span className="text-foreground font-medium">{r.difficulty}</span></p>
-                <Button onClick={() => startDemo(i)} variant="hero" className="w-full">Start demo</Button>
+                <div className="text-sm text-muted-foreground max-h-32 overflow-y-auto">
+                  {interview.description.split('\r\n').map((line, idx) => {
+                    if (line.startsWith('##')) {
+                      return <h3 key={idx} className="font-semibold text-foreground mt-2 mb-1">{line.replace('##', '').trim()}</h3>;
+                    }
+                    if (line.startsWith('*')) {
+                      return <li key={idx} className="ml-4 list-disc">{line.replace('*', '').trim()}</li>;
+                    }
+                    return line.trim() ? <p key={idx} className="mb-1">{line}</p> : null;
+                  })}
+                </div>
+                <Button onClick={() => startDemo(i)} variant="hero" className="w-full">Try Interview</Button>
               </CardContent>
             </Card>
           ))}
@@ -131,24 +83,32 @@ const Demo = () => {
       </main>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-lg">
+        <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
-            <DialogTitle>{active?.role} — Demo interview</DialogTitle>
+            <DialogTitle>{activeInterview?.title} — Demo Interview</DialogTitle>
           </DialogHeader>
-          {active && (
+          {activeInterview && (
             <div className="space-y-4">
-              <div className="flex items-center justify-between text-sm">
-                <span>Question {Math.min(step + 1, totalSteps)} of {totalSteps}</span>
-                <span className="text-muted-foreground">Demo mode</span>
-              </div>
-              <Progress value={progress} />
-              <div className="p-4 rounded-md border bg-card animate-fade-in">
-                <p className="font-medium mb-2">{active.questions[step]}</p>
-                <p className="text-sm text-muted-foreground">Tip: Speak for ~90 seconds. The AI will follow up if needed.</p>
+              <div className="p-4 rounded-md border bg-card">
+                <div className="text-sm text-muted-foreground mb-4 max-h-60 overflow-y-auto">
+                  {activeInterview.description.split('\r\n').map((line, idx) => {
+                    if (line.startsWith('##')) {
+                      return <h3 key={idx} className="font-semibold text-foreground mt-3 mb-2 text-base">{line.replace('##', '').trim()}</h3>;
+                    }
+                    if (line.startsWith('*')) {
+                      return <li key={idx} className="ml-4 list-disc mb-1">{line.replace('*', '').trim()}</li>;
+                    }
+                    return line.trim() ? <p key={idx} className="mb-2">{line}</p> : null;
+                  })}
+                </div>
               </div>
               <div className="flex gap-3">
-                <Button onClick={handleRecord} variant="secondary">Record answer</Button>
-                <Button onClick={next} variant="default">Next</Button>
+                <Button onClick={handleTryDemo} variant="hero" className="flex-1">
+                  Start Interview
+                </Button>
+                <Button onClick={() => setOpen(false)} variant="outline">
+                  Close
+                </Button>
               </div>
             </div>
           )}

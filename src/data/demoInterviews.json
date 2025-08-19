@@ -1,0 +1,62 @@
+[
+  {
+    "title": "Coding Hands On",
+    "description": "## About Us\r\nWe're on a mission to build scalable SaaS platforms that empower businesses across logistics and finance. Headquartered in Bengaluru, we are a fast-growing startup backed by leading angel investors, with a strong focus on engineering excellence and continuous learning.\r\n\r\n## Role Overview\r\nWe are looking for a Junior Fullstack Developer who is passionate about building clean, performant web applications. You'll work closely with our product and design teams to deliver features end-to-end, using modern frontend and backend technologies.\r\n\r\n## Key Responsibilities\r\n* Develop and maintain fullstack applications using React (frontend) and FastAPI / Django (backend)\r\n* Build reusable components and front-end libraries\r\n* Integrate RESTful APIs and work with databases (PostgreSQL)\r\n* Write unit tests and ensure code quality through code reviews\r\n* Collaborate with the product team to understand requirements and deliver timely solutions\r\n\r\n## Must-Have Skills\r\n* 0–2 years of experience in software development (internship/project experience counts!)\r\n* Solid understanding of JavaScript / TypeScript and Python\r\n* Hands-on experience with React.js and modern state management (e.g., Redux / TanStack Query)\r\n* Basic backend development using FastAPI or Django\r\n* Familiarity with Git, APIs, and SQL databases\r\n\r\n## Nice-to-Have\r\n* Exposure to Docker and CI/CD workflows\r\n* Experience with cloud services like AWS or GCP\r\n* Understanding of basic design patterns and clean code practices\r\n\r\n## Perks & Benefits\r\n* Flexible hybrid work culture (2–3 days from office)\r\n* MacBook and home office setup allowance\r\n* Weekly tech talks, hackathons, and mentorship sessions\r\n* Health insurance, wellness programs, and paid time off\r\n* Annual learning & development budget",
+    "redirect": "https://demo.recruit41.com/job/145"
+  },
+  {
+    "title": "Amazon Deep Dive",
+    "description": "A mock Amazon interview where the focus is on the 'deep dive' leadership principle. The interviewer probes deeper and deeper into the candidate's experience. The uploaded resume is NOT used in this interview.",
+    "redirect": "https://demo.recruit41.com/job/9"
+  },
+  {
+    "title": "Screening",
+    "description": "A quick 15 minute screening round for software engineering roles. Typically conducted by a recruiter to decide if the applicant is a match to the job description.",
+    "redirect": "https://demo.recruit41.com/job/13"
+  },
+  {
+    "title": "Software Engineering Intern",
+    "description": "A 45 minute resume + skills based interview for freshers applying for a software engineering role. This interview includes 3 sections - a resume based discussion, a discussion on technical topics, and a case study round.",
+    "redirect": "https://demo.recruit41.com/job/16"
+  },
+  {
+    "title": "System Design",
+    "description": "Meant for architects and senior software engineers, this interview expects you to design a performant and scalable software solution.",
+    "redirect": "https://demo.recruit41.com/job/14"
+  },
+  {
+    "title": "SDET 3-5 yrs",
+    "description": "An interview for SDET / Automation Engineers. Focusses on ability to write web automation code in either Selenium Webdrive, Cypress or Playwright.",
+    "redirect": "https://demo.recruit41.com/job/104"
+  },
+  {
+    "title": "SDE - Coding Round",
+    "description": "Coding Round for Fresher level job",
+    "redirect": "https://demo.recruit41.com/job/105"
+  },
+  {
+    "title": "Product Architect",
+    "description": "This interview evaluates a Product Architect's ability to craft a resilient technical vision from business requirements. We will explore their decision-making process on high-level system design, technology evaluation, and architectural trade-offs. The discussion centers on a complex design challenge where the candidate must blueprint a new product, justifying their choices on scalability, security, and long-term maintainability.",
+    "redirect": "https://demo.recruit41.com/job/106"
+  },
+  {
+    "title": "Business Analyst",
+    "description": "This interview evaluates a Business Analyst's ability to translate complex business needs into clear requirements. Through practical scenarios, we test their methods for managing stakeholders, analyzing processes, and resolving ambiguity. The core assessment is a case study where the candidate must dissect a business problem and present a structured, well-reasoned recommendation.",
+    "redirect": "https://demo.recruit41.com/job/108"
+  },
+  {
+    "title": "HR Analyst",
+    "description": "This interview assesses a candidate for a Senior HR Analyst role by evaluating their ability to derive insights from people-centric data. Through practical, scenario-based questions, we will explore their expertise in HR data analysis, designing meaningful KPIs, and conducting compensation and benefits reviews. The assessment centers on a case study where the candidate must analyze a dataset to uncover the root causes of employee attrition and propose a data-driven action plan. Ultimately, our goal is to evaluate their capacity to transform complex HR data into strategic insights that can guide business decisions.",
+    "redirect": "https://demo.recruit41.com/job/109"
+  },
+  {
+    "title": "Financial Analyst",
+    "description": "This interview assesses a candidate for a Financial Analyst role by evaluating their proficiency in core financial competencies. Through practical, scenario-based questions, we will probe their expertise in financial modeling, forecasting, and variance analysis. The evaluation culminates in a case study where the candidate must analyze the financial viability of a new business investment, requiring them to build a forecast and provide a data-driven recommendation. The overall goal is to gauge their analytical rigor, technical skills, and ability to translate complex financial data into actionable insights for leadership.",
+    "redirect": "https://demo.recruit41.com/job/53"
+  },
+  {
+    "title": "SDE - Java",
+    "description": "This interview gauges a Java engineer's ability to build robust backend services. We will test their grasp of core Java principles and the Spring Boot framework through targeted technical questions. The main focus is a live coding session where the candidate must design and implement an efficient solution to a practical problem, demonstrating their problem-solving skills and ability to write clean, production-ready code.",
+    "redirect": "https://demo.recruit41.com/job/107"
+  }
+]
