@@ -246,7 +246,7 @@ const processSteps = [{
   icon: Upload
 }, {
   number: "02",
-  title: "Invite Candidates & Schedule",
+  title: "Invite Candidates",
   description: "Upload candidate database and automatically send interview invites to qualified applicants.",
   component: SchedulingDemo,
   icon: Users

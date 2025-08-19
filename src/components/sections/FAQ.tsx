@@ -25,7 +25,7 @@ const FAQ = () => {
     },
     {
       question: "What makes Recruit41 different from other hiring platforms?",
-      answer: "Broad Horizons – Human + AI = Awesome. Recruit41 brings together the best of both worlds: the expertise of human intelligence and the efficiency of AI to transform recruitment across industries. Human Expertise to Configure and Align: Our platform leverages human expertise to configure workflows, set precise rubrics, and establish criteria tailored to your unique hiring goals and organizational values. AI for Effortless Execution: Calibrates processes, automates interview conduction, handles repetitive tasks, and ensures consistency, saving time while delivering high-quality results."
+      answer: "Seamless Integration – Human + AI Excellence. Recruit41 brings together the best of both worlds: human expertise and AI efficiency to transform recruitment across industries. Human Expertise to Configure and Align: Our platform leverages human expertise to configure workflows, set precise rubrics, and establish criteria tailored to your unique hiring goals and organizational values. AI for Effortless Execution: Calibrates processes, automates interview conduction, handles repetitive tasks, and ensures consistency, saving time while delivering high-quality results."
     },
     {
       question: "How can I start using Recruit41 for hiring?",
@@ -33,11 +33,11 @@ const FAQ = () => {
     },
     {
       question: "Is Recruit41 suitable for non-technical roles?",
-      answer: "Absolutely! While we have strong expertise in technical hiring, our platform is designed to assess and hire talent across all domains, including marketing, sales, operations, and more."
+      answer: "Absolutely! Recruit41 works across domains and has been successfully used to hire financial analysts, marketing professionals, account managers, HR professionals, and many other roles beyond technical positions."
     },
     {
       question: "How does Recruit41 ensure quality hires?",
-      answer: "Our hiring process is built around rigorous evaluations, real-world assessments, and structured interviews, ensuring that only the best candidates make it through."
+      answer: "We support a human-in-the-loop process and act as decision-making support for hiring teams, enabling them to select the right fit. Our platform provides comprehensive insights and evaluations while keeping human judgment at the center of the final hiring decision."
     },
     {
       question: "Does Recruit41 support remote hiring?",
