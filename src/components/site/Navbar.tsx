@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import { useTheme } from "next-themes";
 import ModeToggle from "./ModeToggle";
 

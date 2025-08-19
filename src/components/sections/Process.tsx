@@ -1,6 +1,6 @@
 import { Upload, FileText, Zap, CheckCircle, Calendar, Users, BarChart3 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
 // Automated demo component for step 1
 const InterviewCreationDemo = ({

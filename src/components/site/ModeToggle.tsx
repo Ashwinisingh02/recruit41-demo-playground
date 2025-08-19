@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 
 const ModeToggle: React.FC = () => {
   const { theme, resolvedTheme, setTheme } = useTheme();

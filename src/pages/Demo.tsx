@@ -1,14 +1,14 @@
 import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLocation } from "react-router-dom";
-import Navbar from "@/components/site/Navbar";
-import Footer from "@/components/site/Footer";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Progress } from "@/components/ui/progress";
-import { useToast } from "@/hooks/use-toast";
-import demoInterviewsData from "@/data/demoInterviews.json";
+import Navbar from "../components/site/Navbar";
+import Footer from "../components/site/Footer";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../components/ui/dialog";
+import { Progress } from "../components/ui/progress";
+import { useToast } from "../hooks/use-toast";
+import demoInterviewsData from "../data/demoInterviews.json";
 
 interface DemoInterview {
   title: string;

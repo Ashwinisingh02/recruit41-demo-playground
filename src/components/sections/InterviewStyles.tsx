@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../ui/card";
 import { Search, FileText, Brain, MessageSquare, Code2, BookOpen, Presentation, Terminal } from "lucide-react";
 const interviewStyles = [{
   icon: Search,

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
 import { Check, Mail } from "lucide-react";
 const plans = [{
   name: "Basic Plan",

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-recruit41.jpg";
-import dashboardPreview from "@/assets/dashboard-preview.jpg";
+import { Button } from "../ui/button";
+import heroImage from "../../assets/hero-recruit41.jpg";
+import dashboardPreview from "../../assets/dashboard-preview.jpg";
 import { useEffect, useState } from "react";
-import { ScrollHighlightText } from "@/components/ui/scroll-highlight-text";
+import { ScrollHighlightText } from "../ui/scroll-highlight-text";
 const Hero = () => {
   const [offset, setOffset] = useState(0);
   useEffect(() => {
