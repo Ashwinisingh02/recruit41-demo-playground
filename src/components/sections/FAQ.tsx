@@ -9,7 +9,7 @@ const FAQ = () => {
   const faqs = [
     {
       question: "What is Recruit41?",
-      answer: "Recruit41 is a humanoid/bot interview platform designed to help companies find the right talent efficiently across all domains. The platform has different modules to assess past experience, technical skills, behavioural attributes, culture-fit and task based-evaluation. Our process ensures every hire is skilled, capable, and the perfect fit for your organization."
+      answer: "Recruit41 is an Agentic-AI interview platform. It delivers JD-specific, AI-led interviews that assess technical skills, problem-solving, behavioral attributes, and culture fit, even simulating real-world tasks like coding or presentations. With adaptive proctoring, scientific evaluation frameworks, and enterprise-grade compliance, Recruit41 helps organizations hire faster, fairer, and with greater confidence."
     },
     {
       question: "How does Recruit41's hiring process work?",
