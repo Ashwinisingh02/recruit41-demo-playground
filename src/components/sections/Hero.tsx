@@ -40,9 +40,7 @@ const Hero = () => {
             
           </h1>
           
-          <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Recruit41 automates resume screening and first-round interviews, delivering only the most qualified candidates to your team.
-          </p>
+          <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Recruit41 automates first-round interviews, delivering only the most qualified candidates to your team.</p>
           
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/demo">
