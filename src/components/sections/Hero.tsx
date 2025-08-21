@@ -43,11 +43,11 @@ const Hero = () => {
           <p className="mt-8 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Recruit41 automates first-round interviews, delivering only the most qualified candidates to your team.</p>
           
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link to="/demo">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-4">
+           
+              <Button variant="hero" onClick={() => window.location.href="https://demo.recruit41.com"} size="lg" className="text-lg px-8 py-4">
                 Try AI Interview
               </Button>
-            </Link>
+           
             <a href="https://forms.fillout.com/t/jyDioUXUGXus" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="text-lg px-8 py-4">Let's Connect</Button>
             </a>
