@@ -45,7 +45,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h4 className="text-sm font-medium text-foreground">Legal</h4>
             <nav className="flex flex-col space-y-2">
-              <a href="https://docs.google.com/document/d/e/2PACX-1vTC4hPHpMdmyhSaVEkcf7t5IALiOxzTDIyF_0oVxkFzuWTeZd_xalJX-4jjTrvje51grw5SmFyMGOkw/pub" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
+              <a href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</a>
               {/* <a href="https://www.recruit41.com/terms-of-service" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Service</a> */}
               <a href="https://www.recruit41.com/dpa" className="text-sm text-muted-foreground hover:text-foreground transition-colors">DPA</a>
               <a href="https://www.recruit41.com/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Cookie Policy</a>
