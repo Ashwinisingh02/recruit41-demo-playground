@@ -45,9 +45,9 @@ const Navbar = () => {
             </>
           )}
           {!isOnDemoPage && (
-            <NavLink to="/demo">
-              <Button variant="hero" size="sm">Try a demo</Button>
-            </NavLink>
+            <div >
+              <Button onClick={() => window.location.href="https://demo.recruit41.com"} variant="hero" size="sm">Try a demo</Button>
+            </div>
           )}
           <ModeToggle />
         </div>
